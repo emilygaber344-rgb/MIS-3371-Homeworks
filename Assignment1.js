@@ -11,8 +11,12 @@ function validateFName() {
   if (x == "") {
     alert("Name must be filled out");
     return false;
-
- 
+	  
+function SetToday(){
+     document.getElementById("today").innerHTML = new Date().toLocaleDateString();
+                     var today = new Date().toISOString().split('T')[0];
+	     document.getElementById('birthday').setAttribute('max', today); 
+}
 /*credit to w3schools
 	 
 */
