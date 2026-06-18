@@ -1,10 +1,44 @@
-
+/* 
+ Name: Emily Gaber
+ File: Dahliahomework1.css
+ Date Created: 6/17/2026
+ Date Updated: 6/17/2026
+ Purpose: Style sheet for my MIS 3371 website
+ */
 body {
-    background-color:"#330066";
-    font-family: "Source Sans Pro", sans-serif;
+    background-color:#330066;
+    font-family: Helvetica;
+    color: White;
 }
-
-tr.form {
-  background-color: #111111;
+ h1 {
+    text-align: right;
+    font-family: "Helvetica;
+    font-weight: normal;
+    color: White;
+}
+table.form, tr.form, td.form {
+  width: 70%;
+  opacity: 0.9;
+  font-family: Helvetica;
+  background-color:#111111;
+  padding: 0px;
+  border-spacing: 00px;
+  color:white;
+}
+th.form {
+  font-family:Helvetica;
+  background-color:#521094;
   padding: 20px;
+  border-spacing: 20px;
+  color:white;
+  margin-left: auto;
+  margin-right: auto;
+}
+.textsize1 
+{
+    width:10px
+}
+.textsize5 
+{
+    width:40px
 }
