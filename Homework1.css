@@ -7,14 +7,14 @@
  */
 body {
     background-color:#330066;
-    font-family: Helvetica;
-    color: White;
+    font-family: Garamond;
+    color: #BF6CE2;
 }
  h1 {
     text-align: right;
-    font-family: "Helvetica;
+    font-family: Garamond;
     font-weight: normal;
-    color: White;
+    color: #BF6CE2;
 }
 table.form, tr.form, td.form {
   width: 70%;
