@@ -5,9 +5,18 @@
  Date Updated: 6/17/2026
  Purpose: Style sheet for my MIS 3371 website
  */
-img {
-  margin: auto;
 
+/*
+Source - https://stackoverflow.com/a/45439817
+Posted by Ehsan
+Retrieved 2026-06-18, License - CC BY-SA 3.0
+*/
+img {
+  padding: inherit;
+  margin:auto;
+  width: 200px;
+  display: block;
+}
 }
 body {
     background-color:#330066;
