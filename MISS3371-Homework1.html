@@ -11,7 +11,7 @@
 			</div>
         <tr>
             <td>
-            <h1 align="center">Dahlia Mental Health Clinic</h1>
+            <h1 align="center">Dahlia Medical Clinic</h1>
             </td>
            </tr>
         <div id="header">
@@ -24,7 +24,6 @@
                 <th class="form" colspan="3"> Patient Information</th>
                 </td>
             </tr>         
-            <td > 
             <tr>  
             <td align="right">
              <label for="fname"> First Name</label></td>
@@ -41,18 +40,18 @@
                                 
              <label for="birthday">Date of Birth</label></td>
                       <td>  <input type="date" id="birthday" size="12" min="1909-01-01" max="" required placeholder="MM/DD/YYYY"> </td></tr>
-                            <tr>  <td align="right">
-             <label for="gender">Gender</label></td> 
-                
-               <td>   
-               <label for="Male">Male</label> 
-            <input type="radio" name ="gender" value="Male"> <br>
-             <label for="Female">Female</label> 
-            <input type="radio" name ="gender" value="Female"> <br>       
-
-       
-                  <label for="Other">Other</label>
-                  <input type="radio" name ="gender" value="Other">  </td>
+                            <tr>  
+			<td align="right" >
+                <label for="gender" >Gender</label></td> 
+                            
+                <td>
+                    <input type="radio" name ="gender" value="Male">
+                <label for="Male"><span>Male</span></label> <br> 
+                <input type="radio" name ="gender" value="Female"> 
+                <label for="Female"><span>Female</span></label> <br>     
+                <input type="radio" name ="gender" value="Other">
+                <label for="Other"><span>Other</span></label><br>
+          </td>
            </tr> 
                             
                                <tr>  <td align="right">
@@ -64,10 +63,10 @@
                      <td>  <input type="email" id="EmailAddress"  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,32}$" size="30" maxlength="30" > </td></tr>
               
                      <tr>      <td align="right"><label for="PhoneNum">Phone Number</label></td>
-                        <td><input type="text" id="PhoneNum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" size="20" maxlength="13" > </td></tr>
+                        <td><input type="text" id="PhoneNum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" size="20" maxlength="13"placeholder="Formatted XXX-XXX-XXXX"> > </td></tr>
               
                  <tr> <td align="right"> <label for="Symptoms">Describe Your Symptoms</label> </td>
-                      <td>  <textarea name="desc" rows="3"  cols="40" 
+                      <td>  <textarea name="desc" rows="5"  cols="70" 
                     maxlength="500" placeholder="Please describe some of your symptoms if any." id="Symptoms"></textarea> </td> </tr>
               <tr >
         <td align="right">
@@ -80,13 +79,13 @@
     </tr>
                         
         <tr>  <td align="right"><label for="AddressLine">Address Line</label></td>
-                            <td>  <input type="text" id="AddressLine" size="30" maxlength="50" required oninput="" placeholder="required field"> </td></tr>
+                            <td>  <input type="text" id="AddressLine" size="30" maxlength="50" required oninput="" placeholder="required"> </td></tr>
                                     <tr>  <td align="right">
         <tr>  <td align="right"> <label for="City">City</label></td>
-                            <td>  <input type="text" id="City" size="30" maxlength="30" required oninput="" placeholder="required field"> </td></tr>
+                            <td>  <input type="text" id="City" size="30" maxlength="30" required oninput="" placeholder="required,Enter a valid city."> </td></tr>
                                     <tr>  <td align="right">
         <tr>  <td align="right"> <label for="Zcode">Zip Code</label></td>
-                            <td> <input type="text" id="ZCode" size="8" maxlength="9" required oninput="" placeholder="required field"> </td> </tr>
+                            <td> <input type="text" id="ZCode" size="8" maxlength="10" required oninput="" placeholder="required (ex, 77312, 12345-6789)"> </td> </tr>
                     
            <tr>  <td align="right">  <label for="State">State</label></td>
 <!--credit to pusherman on github https://gist.github.com/pusherman/3145761-->
@@ -163,8 +162,8 @@
                 <script>
                     <!-- credit you professor and to Pankaj Panjwani -->
          document.getElementById("today").innerHTML = new Date().toLocaleDateString();
-                     var today = new Date().toISOString().split('T')[0];
-	     document.getElementById('birthday').setAttribute('max', today); 
+                     //var today = new Date().toISOString().split('T')[0];
+	   //  document.getElementById('birthday').setAttribute('max', today); 
 ```````</script>
            <script src="Assignment1.js"></script>                   
                         </table>
@@ -172,4 +171,23 @@
                         </div>
                         </tbody>
                         </body>
+                         <body>
+
+                <div>
+                    <tr>  
+             <td>
+                <center>
+                    <footer class="form">
+                    <p>Author: Emily Gaber<br>
+                    <a href="mailto:egaber@cougarnet.uh.edu">egaber@cougarnet.uh.edu<a><br>
+                    <a href="https://www.linkedin.com/in/emilyaidagaber/">Contact Me!<a></a><br>
+                    <a href="https://en.wikipedia.org/wiki/The_Simpsons_house"> 742 Evergreen Terrace, Springfield<a></a>
+                    </p>
+                    </footer>
+                    </td>
+                    </tr>
+                    
+                    </center>
+                </div>
+                </body>
 </html>
