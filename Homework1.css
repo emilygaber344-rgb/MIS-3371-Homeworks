@@ -6,11 +6,13 @@
  Purpose: Style sheet for my MIS 3371 website
  */
 body {
+  margin: auto
     background-color:#330066;
     font-family: Garamond;
     color: #BF6CE2;
 }
  h1 {
+    margin: auto
     text-align: center;
     font-family: Garamond;
     font-weight: normal;
@@ -24,6 +26,7 @@ table.form, tr.form, td.form {
   padding: 0px;
   border-spacing: 00px;
   color:white;
+ margin: auto
 }
 th.form {
   font-family:Helvetica;
