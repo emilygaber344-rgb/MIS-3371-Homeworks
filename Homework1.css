@@ -5,12 +5,11 @@
  Date Updated: 6/17/2026
  Purpose: Style sheet for my MIS 3371 website
  */
-body {
-    
+body { 
     background-color:#330066;
     font-family: Garamond;
     color: #BF6CE2;
-    margin: auto
+    
 }
  h1 {
     line-height: 1.6;
