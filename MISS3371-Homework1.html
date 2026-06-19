@@ -171,7 +171,7 @@
                     </select> </td></tr class="form">
          <tr class="form"> <td align="right"> <label for="uname"> Username</label></td>
               <td>
-                        <input type="text" id="uname" required size="30" min="5" maxlength="30" > </td></tr class="form">
+                        <input type="text" id="uname" required size="30" pattern="[A-Za-z]+[A-Za-z0-9-_]{8,}" min="5" maxlength="30" > </td></tr class="form">
                      
              <tr class="form">    <td align="right"> <label for="Password">Password</label> </td>
                      <td>   <input type="password" id="Password" size="30" min="8"  maxlength="30" required placeholder="required field" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"> </td></tr class="form">
