@@ -78,29 +78,25 @@ a {
     line-height: 1.8;
     width:40px
 }
-
-    width:40px
-}
-/* CREDIT TO W#SCHOOLS!!!! I have edited to fit my own code*/
+/*CREDIT TO W3SCHOOLS!!!! I have edited to fit my own code*/
 #Passwordmessage {
   display:none;
-  background: #cbc3e3;
-  color: #000;
+  background: #420182;
+  color: #ffffff;
   position: relative;
   padding: 20px;
   margin-top: 10px;
 }
-
 #Passwordmessage p {
   font-size: 16px;
 }
 
-/* Add a green text color and a checkmark when the requirements are right */
+/* Gree when valid */
 .valid {
-  color: green;
+  color: rgb(0, 206, 144);
 }
 
-/* Add a red text color and an "x" when the requirements are wrong */
+/* red text color when invalid*/
 .invalid {
-  color: red;
+  color: rgb(175, 0, 47);
 }

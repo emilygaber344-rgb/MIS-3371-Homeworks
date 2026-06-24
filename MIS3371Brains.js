@@ -1,13 +1,13 @@
 /*
 Name: Emily Gaber
- File: MISS-Homework.html
+ File: MIS3371Brains.js
  Date Created: 6/23/2026 (technically old code but im using it for a new clinic)
  Date Updated: 6/23/2026
  Purpose: To creat logic for the website to validate
  */
 
 /* Credit to W3Schools!!!!!*/
-<script>
+
 var myInput = document.getElementById("password");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
@@ -65,4 +65,3 @@ myInput.onkeyup = function() {
     length.classList.add("invalid");
   }
 }
-</script>
