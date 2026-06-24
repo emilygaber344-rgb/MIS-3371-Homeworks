@@ -6,46 +6,37 @@ Name: Emily Gaber
  Purpose: To creat logic for the website to validate
  */
 
-/* Credit to W3Schools!!!!!*/
+// Credit to W3Schools!!!!! I altered it to fit my code but they produced the original.
 
 var myInput = document.getElementById("password");
-var letter = document.getElementById("letter");
-var capital = document.getElementById("capital");
+var SpecialChars = document.getElementById("SpecialChars");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
+ValidatePassword(){
 
+}
+ returndata() {
+
+ }
 // When the user clicks on the password field, show the message box
 myInput.onfocus = function() {
   document.getElementById("Passwordmessage").style.display = "block";
 }
-
-// When the user clicks outside of the password field, hide the message box
 myInput.onblur = function() {
-  document.getElementById("Passwordmessage").style.display = "none";
+  document.getElementById("message").style.display = "none";
 }
-
 // When the user starts to type something inside the password field
 myInput.onkeyup = function() {
   // Validate lowercase letters
-  var lowerCaseLetters = /[a-z]/g;
-  if(myInput.value.match(lowerCaseLetters)) {
-    letter.classList.remove("invalid");
-    letter.classList.add("valid");
-  } else {
-    letter.classList.remove("valid");
-    letter.classList.add("invalid");
-}
-
   // Validate capital letters
-  var upperCaseLetters = /[A-Z]/g;
-  if(myInput.value.match(upperCaseLetters)) {
-    capital.classList.remove("invalid");
-    capital.classList.add("valid");
+  var SpecialChars = /^(?=.*\d)(?!.*\s)/g;
+  if(myInput.value.match(SpecialChars)) {  
+    SpecialChars.classList.remove("invalid");
+    SpecialChars.classList.add("valid");
   } else {
-    capital.classList.remove("valid");
-    capital.classList.add("invalid");
+    SpecialChars.classList.remove("valid");
+    SpecialChars.classList.add("invalid");
   }
-
   // Validate numbers
   var numbers = /[0-9]/g;
   if(myInput.value.match(numbers)) {
