@@ -189,18 +189,26 @@
 	            <input type="button" value="Review" onclick="returndata()"> 
                 <input type="reset" onclick="clear()">
                 </center>
-				</td>
-			 	</tr class="form">
+			</td>
+		</tr class="form">
         	<script>
                     // credit to professor Messinger and to Pankaj Panjwani 
          document.getElementById("today").innerHTML = new Date().toLocaleDateString();
                      //var today = new Date().toISOString().split('T')[0];
 	   //  document.getElementById('birthday').setAttribute('max', today); 
-```````</script>
-           <script src="Assignment1.js"></script>                   
+				</script>
+           <script src="MIS3371Brains.js"></script>                   
                         </table>
-                    </form>
-                        </div>
+                    	</form>
+                        </div>		  
+						<div id="Passwordmessage">
+							<!-- credit to W#Schools once more!!!-->
+						  <h3>Password must contain the following:</h3>
+						  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+						  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+						  <p id="number" class="invalid">A <b>number</b></p>
+						  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+						</div>
                         </tbody>
                         </body>
                          <body>
