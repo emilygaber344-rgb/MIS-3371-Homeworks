@@ -5,6 +5,7 @@
  Date Updated: 6/18/2026
  Purpose: Style sheet for my MIS 3371 website
  */
+ 
 body { 
     line-height: 1.8;
     background-color:#330066;
@@ -19,47 +20,74 @@ body {
     color: #BF6CE2;
     margin: auto
 }
-table.form, tr.form, td.form {
+table.form{
   line-height: 1.8;
-  width: 70%;
-  text-align: auto;
+  width: 80%;
+  text-align: center;
   font-family: Garamond;
   background-color:#111111;
-  padding: 10px;
+  padding: 5px;
   border-spacing: 03px;
   color:white;
   margin: auto;
-}
-th.form {
-font-size: 25px;
-  line-height: 1.8;
-  font-family:Garamond;
-  background-color:#330066;
-  padding: 30px;
-  opacity: 0.5;
+  display: flex; 
   border-spacing: 20px;
-  color:#BF6CE2;
-  margin-left: auto;
-  margin-right: auto;
 }
-tr.extra {
-  text-align: center;
-}
-tr.valid, td.valid {
+tr.form, td.form {
+  line-height: 1.8;
   width: 100%;
+  text-align: auto;
   font-family: Garamond;
   background-color:#111111;
-  padding: 10px;
+  padding: 5px;
+  color:white;
+  margin: auto;
+  display: flex; 
+  border-spacing: 15px;
+  margin-left: 30px;
+}
+th.form {
+  width: 110%;
+  font-size: 25px;
+  line-height: 1.8;
+  font-family:Garamond;
+  background-color:#39004f;
+  padding: 30px;
+  opacity: 0.7;
+  border-spacing: 20px;
+  color:#b455dc;
+  text-align: center;
+  margin-left: 30%;
+  
+ 
+}
+tr.extra {
+  width: 100%;
+  font-size: 25px;
+  line-height: 1.8;
+  font-family:Garamond;
+  padding: 30px;
+  opacity: 0.7;
+  border-spacing: 20px;
+  color:#b455dc;
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+tr.valid, td.valid {
+  font-family: Garamond;
+  background-color:#111111;
+  padding: 20px;
   border-spacing: 03px;
   color:white;
-  margin: left;
-  text-align: left;
+  text-align: center;
+  margin-left: 100px;
 }
 div.Thankform, tr.Thankform, td.Thankform {
   line-height: 1.8;
   width: 60%;
   font-size: 25px;
-  align-items: center;
+  align-items: right;
   font-family: Garamond;
   background-color:#111111;
   padding: 10px;
@@ -69,7 +97,7 @@ div.Thankform, tr.Thankform, td.Thankform {
 }
 footer{
    line-height: 1.8;
-  width: 60%;
+  width:75%;
   opacity: 0.7;
   font-family: Garamond;
   background-color:#111111;
