@@ -8,7 +8,7 @@ Name: Emily Gaber
 
 // Credit to W3Schools!!!!! I altered it to fit my code but they produced the original.
 
-let myInput = document.getElementById("Password");
+let UserPassword = document.getElementById("Password");
 //let SpecialChars = document.getElementById("SpecialChars");
 let capital = document.getElementById("capital");;
 let number = document.getElementById("number");
@@ -19,53 +19,59 @@ function ValidatePassword(){
   const Password = document.getElementById("Password").value;
   const ConfirmPassword = document.getElementById("ConfirmPassword").value;
   const Status = document.getElementById("Status");
-    if (Password !== ConfirmPassword) {
+    if (Password == "") {
+      Status.textContent = "Please add a password.";
+      Status.className = "Invalid";
+      Status.style.color = "yellow";
+  } else if (Password !== ConfirmPassword) {
       Status.textContent = "Passwords do not match.";
-      Status.className="Mismatch";
+      Status.className = "Mismatch";
       Status.style.color = "red";
-      } else if (Password === ConfirmPassword) {
-        Status.textContent = "Passwords match.";
-        Status.className="Match";
-        Status.style.color = "green";
-        }
-          /*else(Password == ""){
-          Status.textContent = "Please add a password.";
-          Status.className="Invalid";
-          Status.style.color = "yellow";
-        }*/
+  } else {
+      Status.textContent = "Passwords match.";
+      Status.className = "Match";
+      Status.style.color = "green";
   }
- //returndata() {
+}
+function validateFirstName(){
 
- //}
+}
+function RealBirthdays() {
+  const today = new Date();
+	  document.getElementById('birthday').setAttribute('max', today);
+}
+ function returndata() {
+
+}
 // When the user clicks on the password field, show the message box
-myInput.onfocus = function() {
+UserPassword.onfocus = function() {
   document.getElementById("Passwordmessage").style.display = "block";
 }
-myInput.onblur = function() {
+UserPassword.onblur = function() {
   document.getElementById("Passwordmessage").style.display = "none";
 }
 // When the user starts to type something inside the password field
-myInput.onkeyup = function() {
+UserPassword.onkeyup = function() {
 // Validate capital letters
   let upperCaseLetters = /[A-Z]/g;
-  if(myInput.value.match(upperCaseLetters)) {  
+  if(UserPassword.value.match(upperCaseLetters)) {  
     capital.classList.remove("invalid");
     capital.classList.add("valid");
   } else {
     capital.classList.remove("valid");
     capital.classList.add("invalid");
 
- /* let SpecialChars = /^(?=.*\d)(?!.*\s)/g;
-  if(myInput.value.match(SpecialChars)) {  
+  let SpecialChars = /^(?=.*\d)(?!.*\s)/g;
+  if(UserPassword.value.match(SpecialChars)) {  
     SpecialChars.classList.remove("invalid");
     SpecialChars.classList.add("valid");
   } else {
     SpecialChars.classList.remove("valid");
     SpecialChars.classList.add("invalid");
-  } */
+  } 
   // Validate numbers
   let numbers = /[0-9]/g;
-  if(myInput.value.match(numbers)) {
+  if(UserPassword.value.match(numbers)) {
     number.classList.remove("invalid");
     number.classList.add("valid");
   } else {
@@ -74,7 +80,7 @@ myInput.onkeyup = function() {
   }
 
   // Validate length
-  if(myInput.value.length >= 8) {
+  if(UserPassword.value.length >= 8) {
     length.classList.remove("invalid");
     length.classList.add("valid");
   } else {
