@@ -8,37 +8,63 @@ Name: Emily Gaber
 
 // Credit to W3Schools!!!!! I altered it to fit my code but they produced the original.
 
-var myInput = document.getElementById("password");
-var SpecialChars = document.getElementById("SpecialChars");
-var number = document.getElementById("number");
-var length = document.getElementById("length");
-ValidatePassword(){
+let myInput = document.getElementById("Password");
+//let SpecialChars = document.getElementById("SpecialChars");
+let capital = document.getElementById("capital");;
+let number = document.getElementById("number");
+let length = document.getElementById("length");
 
-}
- returndata() {
+// Credit to Technical Rajni for the tutorial! I did change it however
+function ValidatePassword(){
+  const Password = document.getElementById("Password").value;
+  const ConfirmPassword = document.getElementById("ConfirmPassword").value;
+  const Status = document.getElementById("Status");
+    if (Password !== ConfirmPassword) {
+      Status.textContent = "Passwords do not match.";
+      Status.className="Mismatch";
+      Status.style.color = "red";
+      } else if (Password === ConfirmPassword) {
+        Status.textContent = "Passwords match.";
+        Status.className="Match";
+        Status.style.color = "green";
+        }
+          /*else(Password == ""){
+          Status.textContent = "Please add a password.";
+          Status.className="Invalid";
+          Status.style.color = "yellow";
+        }*/
+  }
+ //returndata() {
 
- }
+ //}
 // When the user clicks on the password field, show the message box
 myInput.onfocus = function() {
   document.getElementById("Passwordmessage").style.display = "block";
 }
 myInput.onblur = function() {
-  document.getElementById("message").style.display = "none";
+  document.getElementById("Passwordmessage").style.display = "none";
 }
 // When the user starts to type something inside the password field
 myInput.onkeyup = function() {
-  // Validate lowercase letters
-  // Validate capital letters
-  var SpecialChars = /^(?=.*\d)(?!.*\s)/g;
+// Validate capital letters
+  let upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+
+ /* let SpecialChars = /^(?=.*\d)(?!.*\s)/g;
   if(myInput.value.match(SpecialChars)) {  
     SpecialChars.classList.remove("invalid");
     SpecialChars.classList.add("valid");
   } else {
     SpecialChars.classList.remove("valid");
     SpecialChars.classList.add("invalid");
-  }
+  } */
   // Validate numbers
-  var numbers = /[0-9]/g;
+  let numbers = /[0-9]/g;
   if(myInput.value.match(numbers)) {
     number.classList.remove("invalid");
     number.classList.add("valid");
@@ -55,4 +81,5 @@ myInput.onkeyup = function() {
     length.classList.remove("valid");
     length.classList.add("invalid");
   }
+}
 }
