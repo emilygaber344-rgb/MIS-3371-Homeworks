@@ -51,6 +51,7 @@ tr.form, td.form {
   border-spacing: 15px;
   margin-left: 30px;
   text-align: left;
+  margin-left: 5%;
 }
 th.form {
   width: 110%;
@@ -63,7 +64,7 @@ th.form {
   border-spacing: 20px;
   color:#b455dc;
   text-align: center;
-  margin-left: 15%;
+  margin-left: 13%;
  
 }
 
@@ -115,7 +116,7 @@ a {
 }
 /*CREDIT TO W3SCHOOLS!!!! I have edited to fit my own code*/
 #Passwordmessage {
-  display:flex;
+  display:none;
   background: #420182;
   color: #ffffff;
   position: relative;
