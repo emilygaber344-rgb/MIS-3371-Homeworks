@@ -36,6 +36,7 @@ function ValidatePassword(){
       Status.textContent = "Please add a password.";
       Status.className = "Invalid";
       Status.style.color = "yellow";
+      document.getElementById("Submit").disabled = true;
   } else if (Password !== ConfirmPassword) {
       Status.textContent = "Passwords do not match.";
       Status.className = "Mismatch";
@@ -44,7 +45,8 @@ function ValidatePassword(){
       Status.textContent = "Passwords match.";
       Status.className = "Match";
       Status.style.color = "green";
-  }
+      document.getElementById("Submit").disabled = false;
+  } 
 }
 function validateFirstName(){
 
