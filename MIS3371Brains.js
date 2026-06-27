@@ -96,5 +96,44 @@ UserPassword.onkeyup = function() {
     length.classList.add("invalid");
   }
 }
-}}
+}
+//Credit to Professor Jake! (i made some tweaks dont worry)
+function returndata() {
+  const formcontents = document.getElementById("Intake");
+  const formoutput;
+  const datatype;
+  const i;
+  formoutput = "<table class='output'><th>Dataname</th><th>Value</th>";
+  for (i = 0; i < formcontents.length; i++) {
+              datatype = formcontents.elements[i].type;
+              switch (datatype) {
+                case "checkbox":
+                  if (formcontents.elements[i].checked) {
+                    formoutput = formoutput + "<tr><td>"+formcontents.elements[i].name+"</td>";               
+                    formoutput = formoutput +"<td class='outputdata'>Checked</td></tr>";
+                  }
+                  break;
+               case "radio":
+                    if (formcontents.elements[i].checked) {
+                      formoutput = formoutput + "<tr><td >"+formcontents.elements[i].name+"</td>";
+                      formoutput = formoutput +"<td class='outputdata'>"+ formcontents.elements[i].value+"</td></tr>";
+                    }
+                  break;
+                case "button": case "submit": case "reset":
+                  formoutput = formoutput + "<tr><td>"+formcontents.elements[i].name+"</td>";
+                  formoutput = formoutput +"<td class='outputdata'>"+ formcontents.elements[i].value+"</td></tr>";
+                  break;
+                default:
+                  formoutput = formoutput + "<tr><td>"+formcontents.elements[i].name+"</td>";
+                  formoutput = formoutput +"<td class='outputdata'>"+ formcontents.elements[i].value+"</td></tr>";
+                }
+        
 
+  }
+
+   if (formoutput.length>0) { 
+      formoutput = formoutput + "</table>";
+      document.getElementById("outputformdata").innerHTML = formoutput;
+   }
+  }
+}

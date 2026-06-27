@@ -89,6 +89,19 @@ div.Thankform, tr.Thankform, td.Thankform {
   color:#BF6CE2;
   margin: auto
 }
+tr.returndata, td.returndata{
+  line-height: 1.8;
+  width:75%;
+  opacity: 0.7;
+  font-family: Garamond;
+  background-color:#111111;
+  padding: 10px;
+  border-spacing: 03px;
+  color: #BF6CE2;
+  margin: auto;
+  text-align: center;
+
+}
 footer{
    line-height: 1.8;
   width:75%;
