@@ -133,7 +133,3 @@ function returndata() {
       document.getElementById("outputformdata").innerHTML = formoutput;
    }
 }
-
-}
-}
-}
