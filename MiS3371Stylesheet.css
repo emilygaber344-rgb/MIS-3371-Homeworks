@@ -89,9 +89,12 @@ div.Thankform, tr.Thankform, td.Thankform {
   color:#BF6CE2;
   margin: auto
 }
+th.returndata{
+  font-size: 25px;
+}
 tr.returndata, td.returndata{
   line-height: 1.8;
-  width:75%;
+  width:55%;
   opacity: 0.7;
   font-family: Garamond;
   background-color:#111111;

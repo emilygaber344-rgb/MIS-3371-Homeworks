@@ -168,14 +168,14 @@
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
                     </select> </td></tr class="form">
-             <tr class="form"> <td  > <label for="uname"> Username</label> <br>
+             <tr class="form"> <td > <label for="uname"> Username</label> <br>
              		<input type="text" title="Enter your username. Cannot be same as password." id="uname" required size="30" pattern="[A-Za-z]+[A-Za-z0-9-_]{8,}" min="5" maxlength="30" >
                </td></tr>
                     <tr class="form"> 
 				<td > 
 					<label for="Password">Password</label>  <br>
 					 <input title="Enter your password. Must contain at least one number, one Capital letter, one special character, and at least 8 or more characters." type="password" id="Password" oninput="ValidatePassword()" size="30" min="8"  maxlength="30" required placeholder="required field" pattern="(?=.*\d)(?!.*\s)(?=.*[a-z])(?=.*[A-Z]).{8,}" required> 
-               <div id="Passwordmessage">
+               
 							<!-- credit to W3Schools once more!!!-->
 						  <h3>Password must contain the following:</h3>
                           <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
@@ -191,28 +191,22 @@
 	             
 					 <input title="Retype your password for confirmation." type="password" id="ConfirmPassword" oninput="ValidatePassword()" size="30" min="8" maxlength="30" pattern="(?=.*\d)(?!.*\s)(?=.*[a-z])(?=.*[A-Z]).{8,}" required placeholder="required field"> 
                    <p id="Status"></p></td></tr>
-                <tr align="center" class="form"> 
-             	<td align="center"> 
+                <tr class="form"> 
+             	<td> 
                     <input type="submit" value="Submit" >
                     <input title="Review your answers before submitting." type="button" value="Review" onclick="returndata()"> 
                     <input title="Clear all fields." type="reset" onclick="clear()">
-			</td>
-		</tr>
-    </div>
-        	<script>
-                    // credit to professor Messinger and to Pankaj Panjwani 
-                document.getElementById("today").innerHTML = new Date().toLocaleDateString(); 
-				</script>
-           <script src="MIS3371Brains.js"></script>                   
-                        </table>
-                        </div>		  
-                    
+                     </td>
+                   </tr>                   
+                </tbody> 
+              </table> 
+              </form>          
+            </div>		  
+                 <p id="returndata"></p>    
                 <table class="form" id="outputformdata">
                     <!-- Credit to Prof Jake    -->
-                    <p id="returndata"></p>         
-            <tr class="extra">  
-            <td  class="extra">
-                <tr><th>Title</th><th>Input</th></tr>
+                 <tbody>
+                <tr><th class="returndata">Title</th><th class="returndata">Input</th></tr>
                 <tr><td >First Name</td><td class="returndata"></td></tr>
                 <tr><td >Middle Initial</td><td class="returndata"></td></tr>
                 <tr><td >Last Name</td><td class="returndata"></td></tr>
@@ -224,25 +218,32 @@
                 <tr><td >Phone Number</td><td class="returndata"></td></tr>
                 <tr><td >Email</td><td ></td><td class="returndata"></td></tr>
                 <tr><td >Username</td><td class="returndata"></td></tr>
-                <tr><td >Password</td><td ></td><td class="returndata"></td></tr>
-            </p>
-             
+                <tr><td >Password</td><td ></td><td class="returndata"></td></tr> 
          </tbody>
         </table>
+      </p>
+        <script>
+                    // credit to professor Messinger and to Pankaj Panjwani 
+                document.getElementById("today").innerHTML = new Date().toLocaleDateString(); 
+				</script>
+           <script src="MIS3371Brains.js"></script>
          <div>
                  <tr class="form">  
                     <td>
                         <footer class="form">
                             <p>Author: Emily Gaber<br>
                                 <a href="mailto:egaber@cougarnet.uh.edu">egaber@cougarnet.uh.edu</a>a><br>
-                                <a href="https://www.linkedin.com/in/emilyaidagaber/">Contact Me!</a><br>
-                                <a href="https://en.wikipedia.org/wiki/The_Simpsons_house"> 742 Evergreen Terrace, Springfield</a>
+                                <a href="https://www.linkedin.com/in/emilyaidagaber/">Contact Us!</a><br>
+                                <a href="https://en.wikipedia.org/wiki/The_Simpsons_house"> 742 Evergreen Terrace, Springfield</a><br>
+                                <a href="https://en.wikipedia.org/wiki/Copyright" class="ga-bottom">©Copyright of no one </a>
                             </p>
-	                    </footer>
+	                    
+                    </footer>
 	              </td>
 	            </tr>
-	    	</div>
+	       </div>
         </body>
+        
     </form>
  </html>
 

@@ -39,15 +39,9 @@ function ValidatePassword(){
       document.getElementById("Submit").disabled = false;
   } 
 }
-function validateFirstName(){
-
-}
 function RealBirthdays() {
   const today = new Date();
 	  document.getElementById('birthday').setAttribute('max', today);
-}
- function returndata() {
-
 }
 
 function Passwordmessage(){
@@ -86,7 +80,7 @@ UserPassword.onkeyup = function() {
     number.classList.remove("valid");
     number.classList.add("invalid");
   }
-
+  
   // Validate length
   if(UserPassword.value.length >= 8) {
     length.classList.remove("invalid");
@@ -99,11 +93,14 @@ UserPassword.onkeyup = function() {
 }
 //Credit to Professor Jake! (i made some tweaks dont worry)
 function returndata() {
-  const formcontents = document.getElementById("Intake");
-  const formoutput;
-  const datatype;
-  const i;
-  formoutput = "<table class='output'><th>Dataname</th><th>Value</th>";
+  
+  let formcontents = document.getElementById("Intake");
+  let formoutput;
+  let datatype;
+  let i;
+  Review.onclick = function() {
+  document.getElementById("extra").style.display = "block";
+  formoutput = "<table class='form'><th>Dataname</th><th>Value</th>";}
   for (i = 0; i < formcontents.length; i++) {
               datatype = formcontents.elements[i].type;
               switch (datatype) {
@@ -135,5 +132,6 @@ function returndata() {
       formoutput = formoutput + "</table>";
       document.getElementById("outputformdata").innerHTML = formoutput;
    }
-  }
+}
+
 }
