@@ -13,27 +13,17 @@ let UserPassword = document.getElementById("Password");
 let capital = document.getElementById("capital");;
 let number = document.getElementById("number");
 let length = document.getElementById("length");
-
-function ValidateUsername(){
-  const uname = document.getElementById("uname").value;
-  const Password = document.getElementById("Password").value;
-  const UserStatus = document.getElementById("UserStatus");
-    if (Password === uname) {
-      UserStatus.textContent = "Username cannot be the same as password.";
-      UserStatus.className = "Illegal Username";
-      UserStatus.style.color = "red";
-    }
-    else if (uname !== Password) {
-      UserStatus.textContent = "";
-    }
-}
-// Credit to Technical Rajni for the tutorial! I did change it however
+ 
+// Credit to Technical Rajni and W3schools for the tutorial! I did change it however
 function ValidatePassword(){
+  const uname = document.getElementById("uname").value;
   const Password = document.getElementById("Password").value;
   const ConfirmPassword = document.getElementById("ConfirmPassword").value;
   const Status = document.getElementById("Status");
-    if (Password == "") {
-      Status.textContent = "Please add a password.";
+
+   
+    if (Password == ""|| Password === uname) {
+      Status.textContent = "Please add a valid password. Password cannot be the same as username.";
       Status.className = "Invalid";
       Status.style.color = "yellow";
       document.getElementById("Submit").disabled = true;
@@ -41,6 +31,7 @@ function ValidatePassword(){
       Status.textContent = "Passwords do not match.";
       Status.className = "Mismatch";
       Status.style.color = "red";
+      document.getElementById("Submit").disabled = true;
   } else {
       Status.textContent = "Passwords match.";
       Status.className = "Match";
