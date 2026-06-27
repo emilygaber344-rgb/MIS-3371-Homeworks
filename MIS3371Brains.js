@@ -14,6 +14,19 @@ let capital = document.getElementById("capital");;
 let number = document.getElementById("number");
 let length = document.getElementById("length");
 
+function ValidateUsername(){
+  const uname = document.getElementById("uname").value;
+  const Password = document.getElementById("Password").value;
+  const UserStatus = document.getElementById("UserStatus");
+    if (Password === uname) {
+      UserStatus.textContent = "Username cannot be the same as password.";
+      UserStatus.className = "Illegal Username";
+      UserStatus.style.color = "red";
+    }
+    else if (uname !== Password) {
+      UserStatus.textContent = "";
+    }
+}
 // Credit to Technical Rajni for the tutorial! I did change it however
 function ValidatePassword(){
   const Password = document.getElementById("Password").value;
@@ -43,6 +56,8 @@ function RealBirthdays() {
  function returndata() {
 
 }
+
+function Passwordmessage(){
 // When the user clicks on the password field, show the message box
 UserPassword.onfocus = function() {
   document.getElementById("Passwordmessage").style.display = "block";
@@ -88,4 +103,4 @@ UserPassword.onkeyup = function() {
     length.classList.add("invalid");
   }
 }
-}
+}}
