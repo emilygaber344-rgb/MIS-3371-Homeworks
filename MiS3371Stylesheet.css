@@ -35,7 +35,6 @@ table.form{
   padding: 5px;
   color:white;
   margin: auto;
-  display: flex; 
   border-spacing: 3px;
 }
 tr.form, td.form {
@@ -91,8 +90,9 @@ div.Thankform, tr.Thankform, td.Thankform {
 }
 th.returndata{
   font-size: 25px;
+  width:55%;
 }
-tr.returndata, td.returndata{
+tbody.returndata, tr.returndata, td.returndata{
   line-height: 1.8;
   width:55%;
   opacity: 0.7;
