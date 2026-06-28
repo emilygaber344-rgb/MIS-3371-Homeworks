@@ -2,7 +2,7 @@
 Name: Emily Gaber
  File: MIS3371Brains.js
  Date Created: 6/23/2026 (technically old code but im using it for a new clinic)
- Date Updated: 6/23/2026
+ Date Updated: 6/27/2026
  Purpose: To creat logic for the website to validate
  */
 
@@ -33,8 +33,74 @@ function ValidatePassword(){
       document.getElementById("Submit").disabled = false;
   } 
 }
+//ok credit geeksforgeeks BUT I basically didnt even use their code, more like inpiration. maybe it would work if i took it
+function ValidateInput(){
+  const fname = document.getElementById("fname").value;
+  const LastName = document.getElementById("LastName").value;
+  const birthday = document.getElementById("birthday").value;
+  const SSN = document.getElementById("SSN").value;
+  const Email = document.getElementById("Email").value;
+  const PhoneNum = document.getElementById("PhoneNum").value;
+  const AddressLine = document.getElementById("AddressLine").value;
+  const City = document.getElementById("City").value;
+  const Zcode = document.getElementById("Zcode").value;
+  const State = document.getElementById("State").value;
+    const uname = document.getElementById("uname").value;
+  const Password = document.getElementById("Password").value;
+  const ConfirmPassword = document.getElementById("ConfirmPassword").value;
+  let isValid = true;
+            if (fname === "" ) {
+                ErrorMsg.textContent = "Please enter your name properly.";
+                isValid = false;
+            }
+            if (LastName === "" ) {
+                ErrorMsg.textContent = "Please enter your name properly.";
+                isValid = false;
+            }
+            if (birthday === "" ) {
+                ErrorMsg.textContent = "Error";
+                isValid = false;
+            }
+            if (SSN === "" ) {
+                ErrorMsg.textContent = "Error";
+                isValid = false;
+            }
+           
+            if (Email === "" || !email.includes("@") || !email.includes(".")) {
+                ErrorMsg.textContent = "Please enter a valid email address.";
+                isValid = false;
+            }
+            if (PhoneNum === "" || pass.length < 6) {
+                ErrorMsg.textContent = "Error";
+                isValid = false;
+            } if (AddressLine === "") {
+                ErrorMsg.textContent = "Please enter a valid address.";
+                isValid = false;
+            }
+            if (City === "") {
+                ErrorMsg.textContent = "Please select your city.";
+                isValid = false;
+            }
+            if (Zcode === "" ) {
+                ErrorMsg.textContent = "Please enter your name properly.";
+                isValid = false;
+            }
+            if (State === "" ) {
+                ErrorMsg.textContent = "Please enter your name properly.";
+                isValid = false;
+            }
+            if (uname ==="") {
+                ErrorMsg.textContent = "Please enter a password";
+                isValid = false;
+            }
+            if (Password ==="") {
+                ErrorMsg.textContent = "Please enter a password";
+                isValid = false;
+            }
+            }
+        
 function RealBirthdays() {
-  const today = new Date();
+  let today = new Date();
 	  document.getElementById('birthday').setAttribute('max', today);
 }
 // Credit to W3Schools!!!!! I altered it to fit my code but they produced the original
@@ -62,34 +128,41 @@ function Passwordmessage(){
         capital.classList.remove("valid");
         capital.classList.add("invalid");
 
-      let SpecialChars = /^(?=.*\d)(?!.*\s)/g;
-      if(UserPassword.value.match(SpecialChars)) {  
-        SpecialChars.classList.remove("invalid");
-        SpecialChars.classList.add("valid");
-      } else {
-        SpecialChars.classList.remove("valid");
-        SpecialChars.classList.add("invalid");
-      } 
-      // Validate numbers
-      let numbers = /[0-9]/g;
-      if(UserPassword.value.match(numbers)) {
-        number.classList.remove("invalid");
-        number.classList.add("valid");
-      } else {
-        number.classList.remove("valid");
-        number.classList.add("invalid");
+        let SpecialChars = /^(?=.*\d)(?!.*\s)/g;
+        let hasCapital = /[A-Z]/.test(password);
+        let hasSpecial = /[^A-Za-z0-9\s]/.test(password); // Matches punctuation/symbols
+        let hasNumber = /[0-9]/.test(password);
+        let isLongEnough = password.length >= 8;
+        
+        // Capital letter check
+          if (hasCapital) {
+            capital.className = "valid";
+          } else {
+            capital.className = "invalid";
+          }
+
+          // Special character check
+          if (hasSpecial) {
+            special.className = "valid";
+          } else {
+            special.className = "invalid";
+          }
+
+          // Number check
+          if (hasNumber) {
+            number.className = "valid";
+          } else {
+            number.className = "invalid";
+          }
+
+          // Length check
+          if (isLongEnough) {
+            length.className = "valid";
+          } else {
+            length.className = "invalid";
+          }
+        }
       }
-      
-      // Validate length
-      if(UserPassword.value.length >= 8) {
-        length.classList.remove("invalid");
-        length.classList.add("valid");
-      } else {
-        length.classList.remove("valid");
-        length.classList.add("invalid");
-      }
-    }
-    }
     }
 //Credit to Professor Jake! (i made some tweaks dont worry! I must add that I used Google GEmini (You mentioned we can use it somewhat) to help me figure out why i coulnt get it to function)
 function returndata() {
