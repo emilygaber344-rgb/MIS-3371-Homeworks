@@ -34,7 +34,7 @@ function ValidatePassword(){
   } 
 }
 //ok credit geeksforgeeks BUT I basically didnt even use their code, more like inpiration. maybe it would work if i took it
-function ValidateInput(){
+/*function ValidateInput(){
   const fname = document.getElementById("fname").value;
   const LastName = document.getElementById("LastName").value;
   const birthday = document.getElementById("birthday").value;
@@ -97,7 +97,7 @@ function ValidateInput(){
                 ErrorMsg.textContent = "Please enter a password";
                 isValid = false;
             }
-            }
+            }*/
         
 function RealBirthdays() {
   let today = new Date();
