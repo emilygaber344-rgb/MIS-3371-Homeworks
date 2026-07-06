@@ -76,7 +76,7 @@
              <tr class="form">
                     <td>
                         <label for="SSN">Social Security Number</label><br>
-                        <input name="Social Security Number"  onblur="ValidateSSN()" oninput="ValidateSSN()" title="Enter your Social Security Number." type="password" id="SSN" size="30" min="9" maxlength="11" required oninput="" placeholder="required field"> 
+                        <input name="Social Security Number" oninput="ValidateSSN()" title="Enter your Social Security Number." type="password" id="SSN" size="30" min="9" maxlength="12" required placeholder="required field"> 
                         <input type="checkbox" onclick="Reveal()"> Reveal SSN?
                         <p id="SSNStatus"></p>
                     </td>
@@ -92,9 +92,8 @@
               
             <tr class="form">   
                 <td  >
-                    <Label for="PhoneNum">Country Code</Label>
-                    <label for="PhoneNum">Phone Number</label> <br>
-                    <input name="Country Code" type="number" size="3" min="3">
+                    <label for="PhoneNum">Phone  Number</label> <br>
+                    <input name="Country Code" type="text" size="3" max="999" Placeholder="Ex. +1" maxlength="3" title="Enter your country code."">
                     <input name="Phone Number" oninput="ValidatePhone()" title="Enter your phone number." type="tel" id="PhoneNum"  size="20" maxlength="12" >
                     <p id="PhoneStatus"></p>
                 </td>
@@ -139,23 +138,23 @@
         <tr class="form"> 
              <td >
                 <label for="AddressLine">Address Line</label> <br>
-                <input name="Address" title="Enter a address." type="text" id="AddressLine" size="30" maxlength="50" required oninput="" placeholder="required field"> 
-                <span class="ErrorMsg"></span>
+                <input name="Address" oninput="validateAddress()" title="Enter a address." type="text" id="AddressLine" size="30" maxlength="50" required oninput="" placeholder="required field"> 
+                <p id="AddressStatus"></p>
             </td>
         </tr>
         <tr class="form">  
             <td  >
                  <label for="City">City</label> <br>
-                 <input name="City" title="Enter your city." type="text" id="City" size="30" maxlength="30" required oninput="" placeholder="required field"> 
-                 <span class="ErrorMsg"></span>
+                 <input name="City" oninput="validateCity()" title="Enter your city." type="text" id="City" size="30" maxlength="30" required oninput="" placeholder="required field"> 
+                 <p id="CityStatus"></p>
                 
                 </td>
             </tr>
         <tr class="form"> 
              <td >
                  <label for="Zcode">Zip Code</label> <br>
-                 <input name="Zip Code"title="Enter your zip code. Zip+4 accepted" type="text" id="ZCode" size="10" maxlength="10" min="5" required oninput="" placeholder="required field"> 
-                <span class="ErrorMsg"></span>
+                 <input name="Zip Code" oninput="validateZCode()" title="Enter your zip code. Zip+4 accepted" type="text" id="ZCode" size="10" maxlength="10" min="5" required oninput="" placeholder="required field"> 
+                <p id="ZipCodeStatus"></p>
             </td> 
         </tr>
                     

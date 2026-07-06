@@ -89,23 +89,23 @@ function RealBirthdays() {
 function ValidateSSN() {
   const ssn = document.getElementById("SSN").value;
   const SSNStatus = document.getElementById("SSNStatus");
-  let SSFormat = document.getElementById("SSN").value.replace(/[^0-9]/g, '');
- if (ssn == "" || ssn.length < 9) {
+  //let SSFormat = document.getElementById("SSN").value.replace(/[^0-9]/g, '');
+ if (ssn == "" || SSN.length < 9) {
     SSNStatus.textContent = ("You must enter the 9 digits of your Social Security Number.");
     SSNStatus.style.color = "red";
     document.getElementById("Submit").disabled = true;
   }
-  else if (!/^[0-9]-+$/.test(ssn)) {
-    SSNStatus.textContent = "Only numbers are allowed in the Social Security Number.";
+  else if (!/^[0-9]{9}$/.test(ssn)) { 
+    SSNStatus.textContent = "Please enter a valid Social Security Number. Example: 123-45-6789";
     SSNStatus.style.color = "yellow";
     document.getElementById("Submit").disabled = true;
   }
   else {
-    SSFormat.substr(0, 3) + '-' + SSFormat.substr(3, 2) + '-' + SSFormat.substr(5, 4);
+   // SSFormat.substr(0, 3) + '-' + SSFormat.substr(3, 2) + '-' + SSFormat.substr(5, 4);
     SSNStatus.textContent = "";
     document.getElementById("Submit").disabled = false;
     return true;
-  }
+  } 
   
 }
 
@@ -150,6 +150,81 @@ function ValidatePhone() {
     return true;
   }
 }
+//validate the address
+function ValidateAddress() {
+  const address = document.getElementById("Address").value;
+  const AddressStatus = document.getElementById("AddressStatus");
+  if (address == ""|| address.length < 2) {
+    AddressStatus.textContent = "You must enter a valid address. At least 2 characters are required.";
+    AddressStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    AddressStatus.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+  }
+}
+function validateCity() {
+  const city = document.getElementById("City").value;
+  const CityStatus = document.getElementById("CityStatus");
+  if (city == ""|| city.length < 2) {
+    CityStatus.textContent = "You must enter a valid city. At least 2 characters are required.";
+    CityStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    CityStatus.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+  }
+}
+//validate zip code 
+function validateZCode() {
+  const zipCode = document.getElementById("ZCode").value;
+  const ZipCodeStatus = document.getElementById("ZipCodeStatus");
+  if (zipCode == ""|| zipCode.length < 5) {
+    ZipCodeStatus.textContent = "You must enter a valid zip code. At least 5 characters are required.";
+    ZipCodeStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    ZipCodeStatus.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+  }
+}
+//validate state
+function validateState() {
+  const state = document.getElementById("state").value;
+  const StateStatus = document.getElementById("StateStatus");
+  if (state == "") {
+    StateStatus.textContent = "You must select an option from the dropdown menu.";
+    StateStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    StateStatus.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+  }
+}
+//validate Username
+function validateUsername() {
+  const username = document.getElementById("uname").value;
+  const UsernameStatus = document.getElementById("UsernameStatus");
+  if (username == ""|| username.length < 2) {
+    UsernameStatus.textContent = "You must enter a valid username. At least 2 characters are required.";
+    UsernameStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    UsernameStatus.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+  }
+}
+
 //Credit to W3Schools 
 function Reveal() {
   let x = document.getElementById("SSN");
