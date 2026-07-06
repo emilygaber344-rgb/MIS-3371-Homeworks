@@ -6,8 +6,171 @@ Name: Emily Gaber
  Purpose: To creat logic for the website to validate
  */
 
+function ValidateFirstName() {
+  const fname = document.getElementById("FirstName").value;
+  const FNStatus = document.getElementById("FNStatus");
+  if (fname == "") {
+    FNStatus.textContent = ("You must enter your first name.");
+    FNStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else if (!/^[a-zA-Z]+$/.test(fname)) {
+    FNStatus.textContent = "Only letters, apostrophes, and hyphens are allowed in the first name.";
+    FNStatus.style.color = "yellow";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    FNStatus.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+  }
+}
+//Validates Middle Initial
+function ValidateMname() {
+  const mname = document.getElementById("MiddleInitial").value;
+  const MNStatus = document.getElementById("MNStatus");
+  if (mname == "") {
+    MNStatus.textContent = ("You must enter your middle name.");
+    MNStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else if (!/^[a-zA-Z]+$/.test(mname)) {
+    MNStatus.textContent = "Only letters are allowed in the middle initial.";
+    MNStatus.style.color = "yellow";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    MNStatus.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+  }
+}
+//Validates Last Name
+function ValidateLastName() {
+  const lname = document.getElementById("LastName").value;
+  const LNStatus = document.getElementById("LNStatus");
+  if (lname == "") {
+    LNStatus.textContent = ("You must enter your last name.");
+    LNStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else if (!/^[a-zA-Z-' ]+$/.test(lname)) {
+    LNStatus.textContent = "Only letters, apostrophes, and hyphens are allowed in the last name.";
+    LNStatus.style.color = "yellow";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    LNStatus.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+    
+  }
+}
+//here we go....lets try this again! I will try to validate the birthday field 
+function RealBirthdays() {
+  const BDStatus = document.getElementById("BDStatus");
+  const today = new Date();
+  if (document.getElementById("birthday").value === "") {
+    BDStatus.textContent = "You must enter your birthday.";
+    BDStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else if (new Date(document.getElementById("birthday").value) > today) {
+    BDStatus.textContent = "You cannot enter a future date.";
+    BDStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    document.getElementById("Submit").disabled = false;
+    BDStatus.textContent = "";
+  }
+  }
+//validate the SSN. Credit to Jonny Roller! https://codepen.io/jonny_roller I go the idea to format the SSN from his code. (not an exact replica but i took the parts  i liked
+function ValidateSSN() {
+  const ssn = document.getElementById("SSN").value;
+  const SSNStatus = document.getElementById("SSNStatus");
+  let SSFormat = document.getElementById("SSN").value.replace(/[^0-9]/g, '');
+ if (ssn == "" || ssn.length < 9) {
+    SSNStatus.textContent = ("You must enter the 9 digits of your Social Security Number.");
+    SSNStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else if (!/^[0-9]-+$/.test(ssn)) {
+    SSNStatus.textContent = "Only numbers are allowed in the Social Security Number.";
+    SSNStatus.style.color = "yellow";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    SSFormat.substr(0, 3) + '-' + SSFormat.substr(3, 2) + '-' + SSFormat.substr(5, 4);
+    SSNStatus.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+  }
+  
+}
 
- 
+
+//validates the email
+function ValidateEmail() {
+  const email = document.getElementById("EmailAddress").value;
+  const EmailStatus = document.getElementById("EmailStatus");
+  if (email == "") {
+    EmailStatus.textContent = "You must enter your email address.";
+    EmailStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else if (!/[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,32}$/.test(email)) {
+    EmailStatus.textContent = "Please enter a valid email address. Must contain an @ symbol and a domain name. Example: ProfMake@Hu.edu";
+    EmailStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    EmailStatus.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+  }
+}
+//validate the phone number
+function ValidatePhone() {
+  const phone = document.getElementById("PhoneNum").value;
+  const PhoneStatus = document.getElementById("PhoneStatus");
+  if (phone == "") {
+    PhoneStatus.textContent = "You must enter your phone number.";
+    PhoneStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else if (!/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phone)) {
+    PhoneStatus.textContent = "Please enter a valid phone number. Example: (123) 456-7890";
+    PhoneStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    PhoneStatus.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+  }
+}
+//Credit to W3Schools 
+function Reveal() {
+  let x = document.getElementById("SSN");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+  let y = document.getElementById("Password");
+  if (y.type === "password") {
+    y.type = "text";
+  } else {
+    y.type = "password";
+  }
+  let z = document.getElementById("ConfirmPassword");
+  if (z.type === "password") {
+    z.type = "text";
+  } else {
+    z.type = "password";
+  }
+}
 // Credit to Technical Rajni and W3schools for the tutorial! I did change it however
 function ValidatePassword(){
   const uname = document.getElementById("uname").value;
@@ -18,91 +181,19 @@ function ValidatePassword(){
    
     if (Password == ""|| Password === uname) {
       Status.textContent = "Please add a valid password. Password cannot be the same as username.";
-      Status.className = "Invalid";
       Status.style.color = "yellow";
       document.getElementById("Submit").disabled = true;
   } else if (Password !== ConfirmPassword) {
       Status.textContent = "Passwords do not match.";
-      Status.className = "Mismatch";
       Status.style.color = "red";
       document.getElementById("Submit").disabled = true;
   } else {
       Status.textContent = "Passwords match.";
-      Status.className = "Match";
       Status.style.color = "green";
       document.getElementById("Submit").disabled = false;
   } 
 }
-//ok credit geeksforgeeks BUT I basically didnt even use their code, more like inpiration. maybe it would work if i took it
-/*function ValidateInput(){
-  const fname = document.getElementById("fname").value;
-  const LastName = document.getElementById("LastName").value;
-  const birthday = document.getElementById("birthday").value;
-  const SSN = document.getElementById("SSN").value;
-  const Email = document.getElementById("Email").value;
-  const PhoneNum = document.getElementById("PhoneNum").value;
-  const AddressLine = document.getElementById("AddressLine").value;
-  const City = document.getElementById("City").value;
-  const Zcode = document.getElementById("Zcode").value;
-  const State = document.getElementById("State").value;
-    const uname = document.getElementById("uname").value;
-  const Password = document.getElementById("Password").value;
-  const ConfirmPassword = document.getElementById("ConfirmPassword").value;
-  let isValid = true;
-            if (fname === "" ) {
-                ErrorMsg.textContent = "Please enter your name properly.";
-                isValid = false;
-            }
-            if (LastName === "" ) {
-                ErrorMsg.textContent = "Please enter your name properly.";
-                isValid = false;
-            }
-            if (birthday === "" ) {
-                ErrorMsg.textContent = "Error";
-                isValid = false;
-            }
-            if (SSN === "" ) {
-                ErrorMsg.textContent = "Error";
-                isValid = false;
-            }
-           
-            if (Email === "" || !email.includes("@") || !email.includes(".")) {
-                ErrorMsg.textContent = "Please enter a valid email address.";
-                isValid = false;
-            }
-            if (PhoneNum === "" || pass.length < 6) {
-                ErrorMsg.textContent = "Error";
-                isValid = false;
-            } if (AddressLine === "") {
-                ErrorMsg.textContent = "Please enter a valid address.";
-                isValid = false;
-            }
-            if (City === "") {
-                ErrorMsg.textContent = "Please select your city.";
-                isValid = false;
-            }
-            if (Zcode === "" ) {
-                ErrorMsg.textContent = "Please enter your name properly.";
-                isValid = false;
-            }
-            if (State === "" ) {
-                ErrorMsg.textContent = "Please enter your name properly.";
-                isValid = false;
-            }
-            if (uname ==="") {
-                ErrorMsg.textContent = "Please enter a password";
-                isValid = false;
-            }
-            if (Password ==="") {
-                ErrorMsg.textContent = "Please enter a password";
-                isValid = false;
-            }
-            }*/
         
-function RealBirthdays() {
-  let today = new Date();
-	  document.getElementById('birthday').setAttribute('max', today);
-}
 // Credit to W3Schools!!!!! I altered it to fit my code but they produced the original
 function Passwordmessage(){
     let UserPassword = document.getElementById("Password");
