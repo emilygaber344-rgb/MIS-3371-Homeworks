@@ -152,7 +152,7 @@ function ValidatePhone() {
 }
 //validate the address
 function ValidateAddress() {
-  const address = document.getElementById("Address").value;
+  const address = document.getElementById("AddressLine").value;
   const AddressStatus = document.getElementById("AddressStatus");
   if (address == ""|| address.length < 2) {
     AddressStatus.textContent = "You must enter a valid address. At least 2 characters are required.";
@@ -183,7 +183,7 @@ function validateCity() {
 function validateZCode() {
   const zipCode = document.getElementById("ZCode").value;
   const ZipCodeStatus = document.getElementById("ZipCodeStatus");
-  if (zipCode == ""|| zipCode.length < 5) {
+  if (zipCode == ""|| zipCode.length < 5 || ![a-zA-Z].test(zipCode)) {
     ZipCodeStatus.textContent = "You must enter a valid zip code. At least 5 characters are required.";
     ZipCodeStatus.style.color = "red";
     document.getElementById("Submit").disabled = true;
@@ -194,8 +194,8 @@ function validateZCode() {
     return true;
   }
 }
-//validate state
-function validateState() {
+//validate state ( defunct, theres no requirment to fill and options are added for null/none)
+/*function validateState() {
   const state = document.getElementById("state").value;
   const StateStatus = document.getElementById("StateStatus");
   if (state == "") {
@@ -208,15 +208,26 @@ function validateState() {
     document.getElementById("Submit").disabled = false;
     return true;
   }
-}
+}*/
 //validate Username
 function validateUsername() {
   const username = document.getElementById("uname").value;
   const UsernameStatus = document.getElementById("UsernameStatus");
-  if (username == ""|| username.length < 2) {
-    UsernameStatus.textContent = "You must enter a valid username. At least 2 characters are required.";
+    const Password = document.getElementById("Password").value;
+   const firstLetter = username.charAt(0);
+   if (/[0-9]/.test(firstLetter) || /[^a-zA-Z0-9_-]/.test(username)) {
+    UsernameStatus.textContent = "Username cannot start with a number or contain spaces/special characters.";
     UsernameStatus.style.color = "red";
     document.getElementById("Submit").disabled = true;
+  }
+  else if (username == ""|| username.length < 2 || username.length > 20) {
+    UsernameStatus.textContent = "You must enter a valid username. At least 2 characters but maximum of 20 characters are required.";
+    UsernameStatus.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else if (Password === username) {
+    UsernameStatus.textContent = "Please add a valid password. Username cannot be same as Password.";
+    UsernameStatus.style.color = "yellow";
   }
   else {
     UsernameStatus.textContent = "";
@@ -225,7 +236,56 @@ function validateUsername() {
   }
 }
 
-//Credit to W3Schools 
+
+
+// Credit to Technical Rajni and W3schools for the tutorial! I did change it however
+function ValidatePassword(){
+  const uname = document.getElementById("uname").value;
+  const Password = document.getElementById("Password").value;
+  const ConfirmPassword = document.getElementById("ConfirmPassword").value;
+  const Status = document.getElementById("Status");
+  //credit to GeeksforGeeks for the spcial character regex. I adapted it to my code
+   
+    if (Password == ""|| Password === uname) {
+      Status.textContent = "Please add a valid password. Password cannot be the same as username.";
+      Status.style.color = "yellow";
+      document.getElementById("Submit").disabled = true;
+  } else if (Password.length < 8) {
+      Status.textContent = "Password must be longer than 8 characters.";
+      Status.style.color = "red";
+      document.getElementById("Submit").disabled = true;
+   }
+  
+   else if (!/[^A-Za-z0-9\s]/.test(Password)) {
+      Status.textContent = "Password must contain a special character.";
+      Status.style.color = "red";
+      document.getElementById("Submit").disabled = true;
+   }
+   else if (!/[A-Z]/g.test(Password)) {
+      Status.textContent = "Password must contain a capital (uppercase) letter.";
+      Status.style.color = "red";
+      document.getElementById("Submit").disabled = true;
+   }
+   else if (!/[0-9]/g.test(Password)) {
+      Status.textContent = "Password must contain a number.";
+      Status.style.color = "red";
+      document.getElementById("Submit").disabled = true;
+   }
+   else if (Password !== ConfirmPassword) {
+      Status.textContent = "Passwords do not match.";
+      Status.style.color = "red";
+      document.getElementById("Submit").disabled = true;
+      
+  } 
+   
+   else {
+      Status.textContent = "Passwords match.";
+      Status.style.color = "green";
+      document.getElementById("Submit").disabled = false;
+  } 
+  
+}
+ //Credit to W3Schools 
 function Reveal() {
   let x = document.getElementById("SSN");
   if (x.type === "password") {
@@ -245,91 +305,49 @@ function Reveal() {
   } else {
     z.type = "password";
   }
-}
-// Credit to Technical Rajni and W3schools for the tutorial! I did change it however
-function ValidatePassword(){
-  const uname = document.getElementById("uname").value;
-  const Password = document.getElementById("Password").value;
-  const ConfirmPassword = document.getElementById("ConfirmPassword").value;
-  const Status = document.getElementById("Status");
-
-   
-    if (Password == ""|| Password === uname) {
-      Status.textContent = "Please add a valid password. Password cannot be the same as username.";
-      Status.style.color = "yellow";
-      document.getElementById("Submit").disabled = true;
-  } else if (Password !== ConfirmPassword) {
-      Status.textContent = "Passwords do not match.";
-      Status.style.color = "red";
-      document.getElementById("Submit").disabled = true;
-  } else {
-      Status.textContent = "Passwords match.";
-      Status.style.color = "green";
-      document.getElementById("Submit").disabled = false;
-  } 
-}
-        
+}       
 // Credit to W3Schools!!!!! I altered it to fit my code but they produced the original
-function Passwordmessage(){
-    let UserPassword = document.getElementById("Password");
-    let SpecialChars = document.getElementById("SpecialChars");
-    let capital = document.getElementById("capital");
-    let number = document.getElementById("number");
-    let length = document.getElementById("length");
-    // When the user clicks on the password field, show the message box
-    UserPassword.onfocus = function() {
-      document.getElementById("Passwordmessage").style.display = "block";
-    }
-    UserPassword.onblur = function() {
-      document.getElementById("Passwordmessage").style.display = "none";
-    }
-    // When the user starts to type something inside the password field
-    UserPassword.onkeyup = function() {
-    // Validate capital letters
-      let upperCaseLetters = /[A-Z]/g;
+/*function Passwordmessage(){
+    const UserPassword = document.getElementById("Password");
+    const SpecialChars = document.getElementById("SpecialChars");
+    const capital = document.getElementById("capital");
+    const number = document.getElementById("number");
+    const length = document.getElementById("length");
+    const SpecialChars = /^(?=.*\d)(?!.*\s)/g;
+    const upperCaseLetters = /[A-Z]/g;
       if(UserPassword.value.match(upperCaseLetters)) {  
         capital.classList.remove("invalid");
         capital.classList.add("valid");
       } else {
         capital.classList.remove("valid");
         capital.classList.add("invalid");
-
-        let SpecialChars = /^(?=.*\d)(?!.*\s)/g;
-        let hasCapital = /[A-Z]/.test(password);
-        let hasSpecial = /[^A-Za-z0-9\s]/.test(password); // Matches punctuation/symbols
-        let hasNumber = /[0-9]/.test(password);
-        let isLongEnough = password.length >= 8;
         
         // Capital letter check
-          if (hasCapital) {
+          if (/[A-Z]/.test(UserPassword.value)) {
             capital.className = "valid";
           } else {
             capital.className = "invalid";
           }
-
           // Special character check
-          if (hasSpecial) {
+          if (/[^A-Za-z0-9\s]/.test(UserPassword.value)) {
             special.className = "valid";
           } else {
             special.className = "invalid";
           }
-
           // Number check
-          if (hasNumber) {
+          if (/[0-9]/.test(UserPassword.value)) {
             number.className = "valid";
           } else {
             number.className = "invalid";
           }
-
           // Length check
-          if (isLongEnough) {
+          if (UserPassword.value.length >= 8) {
             length.className = "valid";
           } else {
             length.className = "invalid";
           }
         }
-      }
-    }
+      }*/
 //Credit to Professor Jake! (i made some tweaks dont worry! I must add that I used Google GEmini (You mentioned we can use it somewhat) to help me figure out why i coulnt get it to function)
 function returndata() {
   let formcontents = document.getElementById("Intake");

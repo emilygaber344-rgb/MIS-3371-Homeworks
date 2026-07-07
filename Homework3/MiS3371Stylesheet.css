@@ -136,6 +136,7 @@ a {
   background: #420182;
   color: #ffffff;
   position: relative;
+  text-align: right;
   padding: 20px;
   margin-top: 10px;
 }
