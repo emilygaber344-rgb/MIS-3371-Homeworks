@@ -68,7 +68,7 @@
                         <label for="Male"><span>Male</span></label> <br> 
                         <input type="radio" name ="gender" value="Female"> 
                         <label for="Female"><span>Female</span></label> <br>     
-                        <input type="radio" name ="gender" value="Other">
+                        <input type="radio" required name ="gender" value="Other">
                         <label for="Other"><span>Other</span></label><br>
                     </td>
                 </tr> 
@@ -85,7 +85,7 @@
              <tr class="form"> 
                  <td>
                     <label for="EmailAddress">Email Address</label><br>
-                    <input name="Email" oninput="ValidateEmail()" title="Enter your email address." type="email" id="EmailAddress"  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,32}$" size="30" maxlength="30" >
+                    <input name="Email" oninput="ValidateEmail()" title="Enter your email address." required type="email" id="EmailAddress"  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,32}$" size="30" maxlength="30" >
                     <p id="EmailStatus"></p>
                 </td>
             </tr>
@@ -142,6 +142,13 @@
                 <p id="AddressStatus"></p>
             </td>
         </tr>
+        <tr class="form"> 
+             <td >
+                <label for="AddressLine2">Address Line 2</label> <br>
+                <input name="Address2" oninput="ValidateAddress2()" title="Enter a second address." type="text" id="AddressLine2" size="30" maxlength="50">
+                <p id="AddressStatus2"></p>
+            </td>
+        </tr>
         <tr class="form">  
             <td  >
                  <label for="City">City</label> <br>
@@ -162,7 +169,7 @@
               <td  > 
                  <label for="State">State</label>  <br>
 <!--credit to pusherman on github https://gist.github.com/pusherman/3145761-->
-              <select  name="State" id="state">
+              <select   required name="State" id="state">
                     <option value="No" selected="selected">None</option>
                     <option value="NU">Null</option>
                     <option value="AL">Alabama</option>
@@ -276,6 +283,7 @@
                 <tr><td >Date of Birth</td><td class="returndata"></td></tr>
                 <tr><td >Social Security Number</td><td class="returndata"></td></tr>
                 <tr><td >Address</td><td class="returndata"></td></tr>
+                <tr><td >Address 2</td><td class="returndata"></td></tr>
                 <tr><td >City</td><td class="returndata"></td></tr>
                 <tr><td >State</td><td ></td><td class="returndata"></td></tr>
                 <tr><td >Zip Code</td><td class="returndata"></td></tr>

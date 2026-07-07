@@ -165,6 +165,20 @@ function ValidateAddress() {
     return true;
   }
 }
+function ValidateAddress2() {
+  const address = document.getElementById("AddressLine2").value;
+  const AddressStatus2 = document.getElementById("AddressStatus2");
+  if (address == ""|| address.length < 2) {
+    AddressStatus2.textContent = "You must enter a valid address. At least 2 characters are required.";
+    AddressStatus2.style.color = "red";
+    document.getElementById("Submit").disabled = true;
+  }
+  else {
+    AddressStatus2.textContent = "";
+    document.getElementById("Submit").disabled = false;
+    return true;
+  }
+}
 function validateCity() {
   const city = document.getElementById("City").value;
   const CityStatus = document.getElementById("CityStatus");
