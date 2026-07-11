@@ -11,6 +11,8 @@ body {
     background-color:#330066;
     font-family: Garamond;
     color: #BF6CE2;
+    margin-left: 50px;
+    margin-right: 50px;
 }  
 .header {
   position: fixed;
@@ -33,7 +35,7 @@ body {
     margin: auto
 }
 tbody { 
-   width: 110%;
+   width: 100%;
     background-color:#111111;
 }
 
@@ -42,10 +44,9 @@ table.form{
   line-height: 1.2;
   font-family: Garamond;
   background-color:#111111;
-  padding: 5px;
   color:white;
   width: 100%;
-  border-spacing: 3px;
+  
 }
 tr.form, td.form {
   line-height: 1.4;
@@ -125,19 +126,7 @@ footer{
   color: #BF6CE2;
 
 }
-.textsize1 
-{
-    line-height: 1.8;
-    width:10px
-}
-a {
-  color: #d677ff; /* Replace with your hex, RGB, or named color */
-}
-.textsize5 
-{
-    line-height: 1.8;
-    width:40px
-}
+
 iframe {
   width: 100%;
   height: 800px;
@@ -156,13 +145,20 @@ iframe {
 #Passwordmessage p {
   font-size: 16px;
 }
-
-/* Gree when valid */
-.valid {
-  color: rgb(0, 206, 144);
+/*credit w3schools*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-/* red text color when invalid*/
-.invalid {
-  color: rgb(175, 0, 47);
+/* bar */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #5102a0;;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #7007da;
+  border-radius: 10px;
 }
