@@ -6,6 +6,13 @@ Name: Emily Gaber
  Purpose: To creat logic for the website to validate
  */
 
+ getText("fetch_info.txt");
+
+async function getText(file) {
+  let States = await fetch(file);
+  let myText = await States.text();
+  document.getElementById("demo").innerHTML = myText;
+}
 function ValidateFirstName() {
   const fname = document.getElementById("FirstName").value;
   const FNStatus = document.getElementById("FNStatus");

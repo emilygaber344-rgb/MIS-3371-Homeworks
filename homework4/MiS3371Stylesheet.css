@@ -14,6 +14,10 @@ body {
     margin-left: 50px;
     margin-right: 50px;
 }  
+input{
+  background-color:#303030dd;
+  color:#e5caf0;
+} 
 .header {
   position: fixed;
   top: 0;
@@ -44,7 +48,7 @@ table.form{
   line-height: 1.2;
   font-family: Garamond;
   background-color:#111111;
-  color:white;
+  color:#e5caf0;
   width: 100%;
   
 }
@@ -55,7 +59,7 @@ tr.form, td.form {
   font-family: Garamond;
   background-color:#111111;
   padding: 5px;
-  color:white;
+  color:#e5caf0;
   margin: auto;
   display: flex; 
   border-spacing: 15px;
@@ -64,18 +68,16 @@ tr.form, td.form {
   margin-left: 5%;
 }
 th.form {
-  width: 100%;
+  width: 90%;
   font-size: 25px;
-  
+  justify-content: center;
+  align-items: center;
   font-family:Garamond;
   background-color:#200140;
-  padding: 30px;
-  border-spacing: 20px;
   color:#b455dc;
   text-align: center;
    position: fixed;
   top: 0;
-  padding: 10px 16px;
 }
 
 tr.valid, td.valid {
@@ -83,7 +85,7 @@ tr.valid, td.valid {
   background-color:#111111;
   padding: 20px;
   border-spacing: 03px;
-  color:white;
+  color:#e5caf0;
   text-align: center;
   margin-left: 100px;
 }
@@ -116,7 +118,7 @@ tbody.returndata, tr.returndata, td.returndata{
   text-align: center;
 
 }
-footer{
+footer, p.footer{
    line-height: 1.8;
   opacity: 0.7;
   font-family: Garamond;
@@ -124,7 +126,8 @@ footer{
   padding: 10px;
   border-spacing: 00px;
   color: #BF6CE2;
-
+  text-align: center;
+  position: justify;
 }
 
 iframe {
@@ -136,7 +139,7 @@ iframe {
 #Passwordmessage {
   display:none;
   background: #420182;
-  color: #ffffff;
+  color: #e5caf0;
   position: relative;
   text-align: right;
   padding: 20px;
@@ -150,7 +153,11 @@ iframe {
 ::-webkit-scrollbar {
   width: 10px;
 }
-
+#Submit,#Review,#Reset{
+  color: #e5caf0;
+  border-radius: 8px;
+  background-color: #310161;
+}
 /* bar */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px #5102a0;;
