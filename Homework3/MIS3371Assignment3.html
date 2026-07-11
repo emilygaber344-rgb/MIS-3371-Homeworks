@@ -1,0 +1,319 @@
+ 
+<!--
+ Name: Emily Gaber
+ File: MIS-Homework.html
+ Date Created: 6/17/2026 (technically old code but im using it for a new clinic)
+ Date Updated: 6/27/2026 (i SUBMITTED IT BUT i WILL NOT add any more tweaks past sunday 9the day you said we could submit it and it was okay). my one drive should show the date it was last updated) 
+ Purpose: Creating a medical intake form. If the code looks familiar, its because i took your class last semester.
+
+ Biggest Credit to Professor Jake! THe skeleton was derived from his examples (i did do my best to diffrentiate my version however) 
+ -->
+<!DOCTYPE html>
+    <head>  
+        <meta charset="utf-8">
+            <title>  Dahlia Clinic Intake Form </title>
+		    <link rel="stylesheet" href="MiS3371Stylesheet.css">
+             <link rel="icon" type="image/x-icon" href="NewDahlia.logo.png">
+    </head>
+    <body>
+      <tbody>
+			<div align="center">
+				<img id="logo" src="NewDahlia.logo.png" alt="Dahlia Clinic Logo">
+			</div>
+            <h1 >Dahlia Medical Clinic</h1>
+      </tbody>
+        <div id="header">
+            <form name="Intake" id="Intake" onreset="clear()" action="MIS3371SubmissionPage.html">
+                 <table class="form">
+                 <span id= "today"></span>
+                <link rel="stylesheet" href="MiS3371Stylesheet.css">
+        </div>
+            <tr class="form">
+                <th class="form"> Patient Information</th>
+            </tr >         
+            <tr class="form">  
+                <td >
+                    <label for="FirstName"> First Name</label> <br>
+                    <input  name="First Name" title="Enter your first name. Minimum 1 characters." pattern="[A-Z^a-z-' ^~]{1,32}" type="text" id="FirstName" size="30" min="1" maxlength="30" required oninput="ValidateFirstName()" oninvalid="alert('Please add a First Name');" placeholder="required field"> 
+                     <p id="FNStatus"></p>
+                </td>
+           </tr>
+            <tr class="form">  
+                <td  >
+                    <label for="MiddleInitial">Middle Initial</label> <br>
+                     <input name="Middle Initial" oninput="ValidateMname()" title="Optional, please enter your middle initial." type="text" id="MiddleInitial" size="1" maxlength="1"  placeholder="optional field">
+                    <p id="MNStatus"></p>
+                </td>
+            </tr>            
+            <tr class="form">  
+                <td  >
+                     <label for="LastName">Last Name</label> <br>
+                     <input name="Last Name" oninput="ValidateLastName()" title="Enter your last name." type="text" id="LastName" size="30" maxlength="30" pattern="[A-Z^a-z34-' ]{2,}" required placeholder="required field"> 
+                    <p id="LNStatus"></p>
+                </td>
+            </tr>
+            <tr class="form"> 
+                 <td>             
+                    <label for="birthday">Date of Birth</label> <br>
+                    <input name="Date of Birth" oninput="RealBirthdays()" title="Cannot enter future date or be older than 120 years old." type="date" id="birthday" size="12" min="1909-01-01" max="" required placeholder="MM/DD/YYYY">
+                    <p id="BDStatus"></p>
+                </td>
+            </tr>
+            <tr class="form">  
+			    <td>
+                    <label for="gender" >Gender</label> 
+                    <br>
+            
+                        <input type="radio" name ="gender" value="Male">
+                        <label for="Male"><span>Male</span></label> <br> 
+                        <input type="radio" name ="gender" value="Female"> 
+                        <label for="Female"><span>Female</span></label> <br>     
+                        <input type="radio" required name ="gender" value="Other">
+                        <label for="Other"><span>Other</span></label><br>
+                    </td>
+                </tr> 
+                            
+             <tr class="form">
+                    <td>
+                        <label for="SSN">Social Security Number</label><br>
+                        <input name="Social Security Number" oninput="ValidateSSN()" title="Enter your Social Security Number." type="password" id="SSN" size="30" min="9" maxlength="12" required placeholder="required field"> 
+                        <input type="checkbox" onclick="Reveal()"> Reveal SSN?
+                        <p id="SSNStatus"></p>
+                    </td>
+            </tr>
+                            
+             <tr class="form"> 
+                 <td>
+                    <label for="EmailAddress">Email Address</label><br>
+                    <input name="Email" oninput="ValidateEmail()" title="Enter your email address." required type="email" id="EmailAddress"  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,32}$" size="30" maxlength="30" >
+                    <p id="EmailStatus"></p>
+                </td>
+            </tr>
+              
+            <tr class="form">   
+                <td  >
+                    <label for="PhoneNum">Phone  Number</label> <br>
+                    <input name="Country Code" type="text" size="3" max="999" Placeholder="Ex. +1" maxlength="3" title="Enter your country code."">
+                    <input name="Phone Number" oninput="ValidatePhone()" title="Enter your phone number." type="tel" id="PhoneNum"  size="20" maxlength="12" >
+                    <p id="PhoneStatus"></p>
+                </td>
+             </tr>
+              
+			<tr class="form">  
+                <td > 
+                    <label for="Race">Please describe your race/ethnicity.</label>
+                    
+                     <br>
+                        <input type="checkbox" id="Arace" name="Race" value="Arace">
+                        <label for="Race"> Black or African American </label><br>
+                        <input type="checkbox" id="ASrace" name="ASrace" value="ASrace">
+                         <label for="Race"> Asian or Pacific Islander </label><br>
+                        <input type="checkbox" id="CArace" name="CArace" value="CArace">
+                         <label for="Race"> White or Caucasian </label><br>
+                        <input type="checkbox" id="NArace" name="NArace" value="NArace">
+                        <label for="Race"> Native American or Alaskan Native </label><br>
+                         <input type="checkbox" id="Mrace" name="Race" value="Mrace">
+                        <label for="Race"> Mixed </label><br>
+                        <input type="checkbox" id="Norace" name="Race" value="Norace">
+                        <label for="Race"> Choose not to identify/Other </label><br>
+                </td>
+            </tr>
+            <tr class="form">
+                 <td  >
+                     <label for="Symptoms">Describe Your Symptoms</label>  <br>
+                     <textarea name="Symptom Description" rows="5"  cols="70" 
+                    maxlength="500" placeholder="Please describe some of your symptoms if any." id="Symptoms"></textarea>
+                 </td> 
+                </tr >
+            <tr class="form" >
+                <td>
+                    <label for="PainScale">Pain Scale</label> 
+                    <br>
+                    &nbsp;1
+                    <input  title="Indicate Pain on a scale of 1 to 10" type="range" class="slider" id="Pscale" name="Pain Scale" step="1" min="1" max="10"> 
+                    10&nbsp;<br>
+                </td>
+          </tr>
+                        
+        <tr class="form"> 
+             <td >
+                <label for="AddressLine">Address Line</label> <br>
+                <input name="Address" oninput="ValidateAddress()" title="Enter a address." type="text" id="AddressLine" size="30" maxlength="50" required  placeholder="required field"> 
+                <p id="AddressStatus"></p>
+            </td>
+        </tr>
+        <tr class="form"> 
+             <td >
+                <label for="AddressLine2">Address Line 2</label> <br>
+                <input name="Address2" oninput="ValidateAddress2()" title="Enter a second address." type="text" id="AddressLine2" size="30" maxlength="50">
+                <p id="AddressStatus2"></p>
+            </td>
+        </tr>
+        <tr class="form">  
+            <td  >
+                 <label for="City">City</label> <br>
+                 <input name="City" oninput="validateCity()" title="Enter your city." type="text" id="City" size="30" maxlength="30" required placeholder="required field"> 
+                 <p id="CityStatus"></p>
+                
+                </td>
+            </tr>
+        <tr class="form"> 
+             <td >
+                 <label for="Zcode">Zip Code</label> <br>
+                 <input name="Zip Code" oninput="validateZCode()" title="Enter your zip code. Zip+4 accepted" type="text" id="ZCode" size="10" maxlength="10" min="5" required placeholder="required field"> 
+                <p id="ZipCodeStatus"></p>
+            </td> 
+        </tr>
+                    
+           <tr class="form">
+              <td  > 
+                 <label for="State">State</label>  <br>
+<!--credit to pusherman on github https://gist.github.com/pusherman/3145761-->
+              <select   required name="State" id="state">
+                    <option value="No" selected="selected">None</option>
+                    <option value="NU">Null</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                    </select> 
+                   <p id="StateStatus"></p>
+                </td>
+        </tr>
+        <tr class="form"> 
+            <td > 
+                <label name="Username" for="uname"> Username</label> <br>
+             	<input type="text" oninput="validateUsername()" title="Enter your username. Cannot be same as password." id="uname" required size="25" pattern="[A-Za-z]+[A-Za-z0-9-_]{8,}" min="5" maxlength="30" >
+                <p id="UsernameStatus"></p>
+             </td>
+        </tr>
+        <tr class="form"> 
+			<td > 
+				Password must contain the following:
+                 <div class="Passwordmessage">
+							<!-- credit to W3Schools once more!!!-->
+                          <p >A <b>capital (uppercase)</b> letter</p>
+                          <p >A <b>special Character</b></p>
+						  <p >A <b>number</b></p>
+						  <p >Minimum <b>8 characters</b></p>
+				</div> 
+                <label for="Password">Password</label>  <br>
+				<input name="Password" title="Enter your password. Must contain at least one number, one Capital letter, one special character, and at least 8 or more characters." type="password" id="Password" oninput="ValidatePassword()" size="30" min="8"  maxlength="30" required placeholder="required field" pattern="(?=.*\d)(?!.*\s)(?=.*[a-z])(?=.*[A-Z]).{8,}"> 
+                <input type="checkbox" onclick="Reveal()"> Reveal Password?
+                 
+            </td>
+        </tr>
+               
+         <tr class="form">
+                <br> 
+				 <td >
+					 <label for="ConfirmPassword">Retype your Password</label> <br>
+	             
+					 <input name="Password Conirmation" title="Retype your password for confirmation." type="password" id="ConfirmPassword" oninput="ValidatePassword()" size="30" min="8" maxlength="30" pattern="(?=.*\d)(?!.*\s)(?=.*[a-z])(?=.*[A-Z]).{8,}" required placeholder="required field"> 
+                     <input type="checkbox" onclick="Reveal()"> Reveal Password?
+                     <p id="Status"></p>
+                </td>
+        </tr>
+        <tr class="form"> 
+             	<td> 
+                    <input type="submit" id="Submit" value="Submit" onclick="ValidateInput(0)">
+                    <input title="Review your answers before submitting." type="button" id="Review" value="Review"> 
+                    <input title="Clear all fields." type="reset" onclick="clear()">
+                </td>
+        </tr>                   
+    </tbody> 
+</table> 
+</form>          
+</div>		  
+                <p id="returndata"></p>    
+                <table class="form" id="outputformdata">
+                     <!--Credit to Prof Jake-->
+                 <tbody class="returndata">
+                <tr><th class="returndata">Title</th><th class="returndata">Input</th></tr>
+                <tr><td >First Name</td><td class="returndata"></td></tr>
+                <tr><td >Middle Initial</td><td class="returndata"></td></tr>
+                <tr><td >Last Name</td><td class="returndata"></td></tr>
+                <tr><td >Date of Birth</td><td class="returndata"></td></tr>
+                <tr><td >Social Security Number</td><td class="returndata"></td></tr>
+                <tr><td >Address</td><td class="returndata"></td></tr>
+                <tr><td >Address 2</td><td class="returndata"></td></tr>
+                <tr><td >City</td><td class="returndata"></td></tr>
+                <tr><td >State</td><td ></td><td class="returndata"></td></tr>
+                <tr><td >Zip Code</td><td class="returndata"></td></tr>
+                <tr><td >Phone Number</td><td class="returndata"></td></tr>
+                <tr><td >Email</td><td ></td><td class="returndata"></td></tr>
+                <tr><td >Username</td><td class="returndata"></td></tr>
+                <tr><td >Password</td><td ></td><td class="returndata"></td></tr>
+               </table>
+         </tbody> 
+        <script>
+                    // credit to professor Messinger and to Pankaj Panjwani 
+                document.getElementById("today").innerHTML = new Date().toLocaleDateString(); 
+				</script>
+           <script src="MIS3371Brains.js"></script>
+         <div>
+                 <tr class="form">  
+                    <td>
+                        <footer class="form">
+                            <p>Author: Emily Gaber<br>
+                                <a href="mailto:egaber@cougarnet.uh.edu">egaber@cougarnet.uh.edu</a><br>
+                                <a href="https://www.linkedin.com/in/emilyaidagaber/">Contact Us!</a><br>
+                                <a href="https://en.wikipedia.org/wiki/The_Simpsons_house"> 742 Evergreen Terrace, Springfield</a><br>
+                                <a href="https://en.wikipedia.org/wiki/Copyright" class="ga-bottom">©Copyright of no one </a>
+                            </p>
+                    </footer>
+	              </td>
+	            </tr>
+	       </div>
+        </body>
+</html>
+
+
+

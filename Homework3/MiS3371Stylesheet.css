@@ -1,0 +1,155 @@
+/* 
+ Name: Emily Gaber
+ File: MiS3371Stylesheet.css
+ Date Created: 6/17/2026
+ Date Updated: 6/27/2026
+ Purpose: Style sheet for my MIS 3371 website
+ */
+ 
+body { 
+    line-height: 1.8;
+    background-color:#330066;
+    font-family: Garamond;
+    color: #BF6CE2;
+}  
+ h1 {
+    line-height: 1.8;
+    text-align: center;
+    font-family: Garamond;
+    font-weight: normal;
+    color: #BF6CE2;
+    margin: auto
+}
+tbody { 
+   width: 110%;
+    
+}
+
+table.form{
+  font-size: 17px;
+  line-height: 1.2;
+  width: 80%;
+  text-align: center;
+  font-family: Garamond;
+  background-color:#111111;
+  padding: 5px;
+  color:white;
+  margin: auto;
+  border-spacing: 3px;
+}
+tr.form, td.form {
+  line-height: 1.4;
+  width: 80%;
+  text-align: auto;
+  font-family: Garamond;
+  background-color:#111111;
+  padding: 5px;
+  color:white;
+  margin: auto;
+  display: flex; 
+  border-spacing: 15px;
+  margin-left: 30px;
+  text-align: left;
+  margin-left: 5%;
+}
+th.form {
+  width: 110%;
+  font-size: 25px;
+  line-height: 1.8;
+  font-family:Garamond;
+  background-color:#39004f;
+  padding: 30px;
+  opacity: 0.7;
+  border-spacing: 20px;
+  color:#b455dc;
+  text-align: center;
+  margin-left: 13%;
+ 
+}
+
+tr.valid, td.valid {
+  font-family: Garamond;
+  background-color:#111111;
+  padding: 20px;
+  border-spacing: 03px;
+  color:white;
+  text-align: center;
+  margin-left: 100px;
+}
+div.Thankform, tr.Thankform, td.Thankform {
+  line-height: 1.8;
+  width: 60%;
+  font-size: 25px;
+  align-items: right;
+  font-family: Garamond;
+  background-color:#111111;
+  padding: 10px;
+  border-spacing: 00px;
+  color:#BF6CE2;
+  margin: auto
+}
+th.returndata{
+  font-size: 25px;
+  width:55%;
+}
+tbody.returndata, tr.returndata, td.returndata{
+  line-height: 1.8;
+  width:55%;
+  opacity: 0.7;
+  font-family: Garamond;
+  background-color:#111111;
+  padding: 10px;
+  border-spacing: 03px;
+  color: #BF6CE2;
+  margin: auto;
+  text-align: center;
+
+}
+footer{
+   line-height: 1.8;
+  width:75%;
+  opacity: 0.7;
+  font-family: Garamond;
+  background-color:#111111;
+  padding: 10px;
+  border-spacing: 00px;
+  color: #BF6CE2;
+  margin: auto;
+  text-align: center;
+}
+.textsize1 
+{
+    line-height: 1.8;
+    width:10px
+}
+a {
+  color: #d677ff; /* Replace with your hex, RGB, or named color */
+}
+.textsize5 
+{
+    line-height: 1.8;
+    width:40px
+}
+/*CREDIT TO W3SCHOOLS!!!! I have edited to fit my own code*/
+#Passwordmessage {
+  display:none;
+  background: #420182;
+  color: #ffffff;
+  position: relative;
+  text-align: right;
+  padding: 20px;
+  margin-top: 10px;
+}
+#Passwordmessage p {
+  font-size: 16px;
+}
+
+/* Gree when valid */
+.valid {
+  color: rgb(0, 206, 144);
+}
+
+/* red text color when invalid*/
+.invalid {
+  color: rgb(175, 0, 47);
+}
