@@ -365,7 +365,7 @@ function returndata() {
       document.getElementById("returndata").style.display = "block";
     }
 
-    formoutput = "<table class='form'><tr><th>Title</th><th>Input</th></tr>";
+    formoutput = "<table class='form'><tr><th class='returndata'>Title</th><th class='returndata'>Input</th></tr>";
 
     for (i = 0; i < formcontents.length; i++) {
       datatype = formcontents.elements[i].type;
@@ -373,19 +373,19 @@ function returndata() {
       switch (datatype) {
         case "checkbox":
           if (formcontents.elements[i].checked) {
-            formoutput  = formoutput + "<tr><td>" + formcontents.elements[i].name + "</td>";               
+            formoutput  = formoutput + "<tr><td class='returndata'>" + formcontents.elements[i].name + "</td>";               
             formoutput  = formoutput + "<td class='returndata'>Checked</td></tr>";
           }
           break;
 
         case "radio":
           if (formcontents.elements[i].checked) {
-            formoutput  = formoutput + "<tr><td>" + formcontents.elements[i].name + "</td>";
+            formoutput  = formoutput + "<tr><td class='returndata'>" + formcontents.elements[i].name + "</td>";
             formoutput  = formoutput + "<td class='returndata'>" + formcontents.elements[i].value + "</td></tr>";
           }
           break;
         default:
-          formoutput  = formoutput + "<tr><td>" + formcontents.elements[i].name + "</td>";
+          formoutput  = formoutput + "<tr><td class='returndata'>" + formcontents.elements[i].name + "</td>";
           formoutput  = formoutput + "<td class='returndata'>" + formcontents.elements[i].value + "</td></tr>";
           break;
       }
