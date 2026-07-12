@@ -350,7 +350,7 @@ function Reveal() {
 // Posted by Vinay
 // Retrieved 2026-07-11, License - CC BY-SA 4.0
 
-function createCookie(FirstName){
+/*function createCookie(FirstName){
   let FirstName = document.getElementById("FirstName")
 
   today = new Date();
@@ -368,7 +368,7 @@ function onSubmit(token) {
     form.submit();
   }
 }
-//credit to gemini but i didnt get it to function sadly
+credit to gemini but i didnt get it to function sadly
 async function loadStateOptions() {
   try {
     // 1. Fetch the raw file content
@@ -399,7 +399,7 @@ window.onload = function() {
   }
 };
 
-//credit to w3schools and gemini for assisting me
+credit to w3schools and gemini for assisting me, it didnt work
 window.onload = function() {
   loadStateOptions(); 
   Names();           
@@ -450,7 +450,7 @@ function handleRememberMe() {
     localStorage.removeItem("savedZCode");
     localStorage.removeItem("savedCity");
   }
-}
+}*/
 //Credit to Professor Jake! (i made some tweaks dont worry! I must add that I used Google GEmini (You mentioned we can use it somewhat) to help me figure out why i coulnt get it to function)
 function returndata() {
   let formcontents = document.getElementById("Intake");
