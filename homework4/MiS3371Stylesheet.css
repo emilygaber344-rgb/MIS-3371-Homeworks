@@ -79,7 +79,7 @@ th.form {
   border-radius: 8px;
 }
 #slider-value{
-margin-left: 75px;
+margin-left: 5%;
 }
 tr.valid, td.valid {
   font-family: Garamond;
@@ -141,18 +141,11 @@ iframe {
   border: none;
 }
 /*CREDIT TO W3SCHOOLS!!!! I have edited to fit my own code*/
-#Passwordmessage {
-  display:none;
-  background: #420182;
-  color: #ce81ec;
-  position: relative;
-  text-align: right;
-  padding: 20px;
-  margin-top: 10px;
+div.Passwordmessage {
+  color: rgb(209, 97, 253);
+  font-size: 15px;
 }
-#Passwordmessage p {
-  font-size: 16px;
-}
+
 /*credit w3schools*/
 /* width */
 ::-webkit-scrollbar {

@@ -352,6 +352,29 @@ function Reveal() {
     z.type = "password";
   }
 }       
+//cookies!!! Credit W3Schools
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*48*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+   let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
 
 //Credit to Professor Jake! (i made some tweaks dont worry! I must add that I used Google GEmini (You mentioned we can use it somewhat) to help me figure out why i coulnt get it to function)
 function returndata() {
@@ -397,3 +420,15 @@ function returndata() {
   };
 } 
   returndata();
+  //taken from google gemini after troubleshooting
+ const CookieFirstName = getCookie("FirstName");
+  const FirstNameField = document.getElementById("FirstName");
+  const rememberMe = document.getElementById("RememberMe");
+  
+  if (CookieFirstName && FirstNameField) {
+    FirstNameField.value = CookieFirstName;
+    if (rememberMe) {
+      rememberMe.checked = true;
+    }
+    ValidateFirstName(); // Perform validation to clear any error styles initially
+  }
