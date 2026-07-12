@@ -352,30 +352,74 @@ function Reveal() {
     z.type = "password";
   }
 }       
-//cookies!!! Credit W3Schools
-function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays*48*60*60*1000));
-  let expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
+// Source - https://stackoverflow.com/a/61736486
+// Posted by Vinay
+// Retrieved 2026-07-11, License - CC BY-SA 4.0
 
-function getCookie(cname) {
-   let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
+function createCookie(FirstName){
+  let FirstName = document.getElementById("FirstName")
+
+  today = new Date();
+  let expire = new Date();
+  expire.setTime(today.getTime() + 48*60*60*1000);
+ 
+  document.cookie = "name="+FirstName.value+";path=/" + ";expires="+expire.toUTCString();
+  //can only write one entity at a time (name, pass)
+}  
+//event handler for page load - runs on every refresh
+window.onload = function(){
+
+  //for now
+  let FirstName = 'John';
+  document.getElementById('FirstName').value = FirstName;
+
+}
+//credit to  zelolab
+$('#Zcode').blur(function(){
+  const Zcode = $(this).val();
+  const api_key = 'YOUR_API_KEY_HERE';
+  if(Zcode.length){
+    //make a request to the google geocode api with the zipcode as the address parameter and your api key
+    $.get('https://maps.googleapis.com/maps/api/geocode/json?address='+zip+'&key='+api_key).then(function(response){
+      //parse the response for a list of matching city/state
+      const possibleLocalities = geocodeResponseToCityState(response);
+      fillCityAndStateFields(possibleLocalities);
+    });
   }
-  return "";
-}
+});
 
+function fillCityAndStateFields(localities) {
+  const locality = localities[0]; 
+  
+  $('#city').val(locality.city);
+  $('#state').val(locality.state);
+
+  const $input;
+
+  if(localities.length > 1) { //possibly create a dropdown if we have multiple cities in the result.
+    const $select = $(document.createElement('select'));
+    for(const i = 0; i < localities.length; i++){
+      const city = localities[i].city;
+      const $option = $(document.createElement('option'));
+      $option.html(city);
+      $option.attr('value', city);
+      if(i == 0) {
+        $option.attr('selected','selected');
+      }
+      $select.append($option);
+      $select.attr('id','city');
+    }
+    $input = $select;
+  } else {
+    const city = localities[0].city;
+    const $text = $(document.createElement('input'));
+    $text.attr('value', city);
+    $text.attr('type','text');
+    $input = $text;
+  }
+
+  $('#city-input-wrapper').html($input);
+}
 //Credit to Professor Jake! (i made some tweaks dont worry! I must add that I used Google GEmini (You mentioned we can use it somewhat) to help me figure out why i coulnt get it to function)
 function returndata() {
   let formcontents = document.getElementById("Intake");
@@ -420,15 +464,3 @@ function returndata() {
   };
 } 
   returndata();
-  //taken from google gemini after troubleshooting
- const CookieFirstName = getCookie("FirstName");
-  const FirstNameField = document.getElementById("FirstName");
-  const rememberMe = document.getElementById("RememberMe");
-  
-  if (CookieFirstName && FirstNameField) {
-    FirstNameField.value = CookieFirstName;
-    if (rememberMe) {
-      rememberMe.checked = true;
-    }
-    ValidateFirstName(); // Perform validation to clear any error styles initially
-  }
