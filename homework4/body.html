@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<table class="form">    
-<tbody>
+    <body>
+    
+        <tbody>
+            <form name="Intake" id="Intake" onreset="clear()" action="MIS3371SubmissionPage.html">
+                 <table class="form">
+                <link rel="stylesheet" href="MiS3371Stylesheet.css">
+        </div >
+            </tbody>
+        <script src="MIS3371Brains.js"></script>
         <link rel="stylesheet" href="MiS3371Stylesheet.css">
         <div>
-                <th class="header"> Patient Information</th>
+                <th class="form"> Patient Information</th>
              </div>
                <br>
                <br>
               <div class="form">
+                
             <tr class="form">  
-                <td >
+                <td > 
+                    <span id= "today"></span>
+                    <br>
+                    <br>
                     <label for="FirstName"> First Name</label> <br>
                     <input  name="First Name" title="Enter your first name. Minimum 1 characters." pattern="[A-Z^a-z-' ^~]{1,32}" type="text" id="FirstName" size="30" min="1" maxlength="30" required oninput="ValidateFirstName()" oninvalid="alert('Please add a First Name');" placeholder="required field"> 
                      <p id="FNStatus"></p>
@@ -107,8 +118,9 @@
                     <label for="PainScale">Pain Scale</label> 
                     <br>
                     &nbsp;1
-                    <input  title="Indicate Pain on a scale of 1 to 10" type="range" class="slider" id="Pscale" name="Pain Scale" step="1" min="1" max="10"> 
-                    10&nbsp;<br>
+                    <input oninput="updateSliderValue()" title="Indicate Pain on a scale of 1 to 10" type="range" class="slider" id="Pscale" name="Pain Scale" step="1" value="5" min="1" max="10"> 
+                    10&nbsp;<br> 
+                    Value:<span id='slider-value'>5</span> <p id="slider-message"></p>
                 </td>
           </tr>
                         
@@ -222,5 +234,8 @@
                 document.getElementById("today").innerHTML = new Date().toLocaleDateString(); 
 				</script>
            <script src="MIS3371Brains.js"></script>
+        
         </body>
+        
+       </form>
         </html>

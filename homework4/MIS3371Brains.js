@@ -247,8 +247,8 @@ function validateUsername() {
     document.getElementById("Submit").disabled = true;
   }
   else if (Password === username) {
-    UsernameStatus.textContent = "Please add a valid password. Username cannot be same as Password.";
-    UsernameStatus.style.color = "yellow";
+    UsernameStatus.textContent = "Username cannot be same as Password.";
+    UsernameStatus.style.color = "red";
   }
   else {
     UsernameStatus.textContent = "";
@@ -267,16 +267,20 @@ function ValidatePassword(){
   const Status = document.getElementById("Status");
   //credit to GeeksforGeeks for the spcial character regex. I adapted it to my code
    
-    if (Password == ""|| Password === uname) {
-      Status.textContent = "Please add a valid password. Password cannot be the same as username.";
+    if (Password == "" ) {
+      Status.textContent = "Please add a valid password.";
       Status.style.color = "yellow";
       document.getElementById("Submit").disabled = true;
-  } else if (Password.length < 8) {
+  } else if (Password === uname) {
+      Status.textContent = "Password cannot be the same as username.";
+      Status.style.color = "red";
+      document.getElementById("Submit").disabled = true;
+   }
+  else if (Password.length < 8) {
       Status.textContent = "Password must be longer than 8 characters.";
       Status.style.color = "red";
       document.getElementById("Submit").disabled = true;
    }
-  
    else if (!/[^A-Za-z0-9\s]/.test(Password)) {
       Status.textContent = "Password must contain a special character.";
       Status.style.color = "red";
@@ -306,6 +310,27 @@ function ValidatePassword(){
   } 
   
 }
+function updateSliderValue() {
+  const slider = document.getElementById("Pscale");
+  const sliderValue = document.getElementById("slider-value");
+  const slidermessage = document.getElementById("slider-message");
+  sliderValue.textContent = slider.value;
+  
+  if (slider.value < 4) {
+    sliderValue.style.color = "green";
+    slidermessage.textContent = "";
+  }
+    else if (slider.value >= 4 && slider.value <= 6) {
+      sliderValue.style.color = "yellow";
+      slidermessage.textContent = "";
+}
+    else if (slider.value > 6) {
+  sliderValue.style.color = "red";
+  slidermessage.style.color = "red";
+  slidermessage.textContent = "If this is an Emergency please call 911.";
+  slidermessage.style.fontWeight = "bold";
+}
+}
  //Credit to W3Schools 
 function Reveal() {
   let x = document.getElementById("SSN");
@@ -327,48 +352,7 @@ function Reveal() {
     z.type = "password";
   }
 }       
-// Credit to W3Schools!!!!! I altered it to fit my code but they produced the original
-/*function Passwordmessage(){
-    const UserPassword = document.getElementById("Password");
-    const SpecialChars = document.getElementById("SpecialChars");
-    const capital = document.getElementById("capital");
-    const number = document.getElementById("number");
-    const length = document.getElementById("length");
-    const SpecialChars = /^(?=.*\d)(?!.*\s)/g;
-    const upperCaseLetters = /[A-Z]/g;
-      if(UserPassword.value.match(upperCaseLetters)) {  
-        capital.classList.remove("invalid");
-        capital.classList.add("valid");
-      } else {
-        capital.classList.remove("valid");
-        capital.classList.add("invalid");
-        
-        // Capital letter check
-          if (/[A-Z]/.test(UserPassword.value)) {
-            capital.className = "valid";
-          } else {
-            capital.className = "invalid";
-          }
-          // Special character check
-          if (/[^A-Za-z0-9\s]/.test(UserPassword.value)) {
-            special.className = "valid";
-          } else {
-            special.className = "invalid";
-          }
-          // Number check
-          if (/[0-9]/.test(UserPassword.value)) {
-            number.className = "valid";
-          } else {
-            number.className = "invalid";
-          }
-          // Length check
-          if (UserPassword.value.length >= 8) {
-            length.className = "valid";
-          } else {
-            length.className = "invalid";
-          }
-        }
-      }*/
+
 //Credit to Professor Jake! (i made some tweaks dont worry! I must add that I used Google GEmini (You mentioned we can use it somewhat) to help me figure out why i coulnt get it to function)
 function returndata() {
   let formcontents = document.getElementById("Intake");
