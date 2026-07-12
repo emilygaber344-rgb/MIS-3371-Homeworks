@@ -6,13 +6,7 @@ Name: Emily Gaber
  Purpose: To creat logic for the website to validate
  */
 
- getText("fetch_info.txt");
-
-async function getText(file) {
-  let States = await fetch(file);
-  let myText = await States.text();
-  document.getElementById("demo").innerHTML = myText;
-}
+ 
 function ValidateFirstName() {
   const fname = document.getElementById("FirstName").value;
   const FNStatus = document.getElementById("FNStatus");
@@ -366,59 +360,96 @@ function createCookie(FirstName){
   document.cookie = "name="+FirstName.value+";path=/" + ";expires="+expire.toUTCString();
   //can only write one entity at a time (name, pass)
 }  
-//event handler for page load - runs on every refresh
-window.onload = function(){
 
-  //for now
-  let FirstName = 'John';
-  document.getElementById('FirstName').value = FirstName;
-
+//credit to  ggogle? + gemini for troubleshooting
+function onSubmit(token) {
+  const form = document.getElementById("Intake");
+  if (form) {
+    form.submit();
+  }
 }
-//credit to  zelolab
-$('#Zcode').blur(function(){
-  const Zcode = $(this).val();
-  const api_key = 'YOUR_API_KEY_HERE';
-  if(Zcode.length){
-    //make a request to the google geocode api with the zipcode as the address parameter and your api key
-    $.get('https://maps.googleapis.com/maps/api/geocode/json?address='+zip+'&key='+api_key).then(function(response){
-      //parse the response for a list of matching city/state
-      const possibleLocalities = geocodeResponseToCityState(response);
-      fillCityAndStateFields(possibleLocalities);
-    });
-  }
-});
-
-function fillCityAndStateFields(localities) {
-  const locality = localities[0]; 
-  
-  $('#city').val(locality.city);
-  $('#state').val(locality.state);
-
-  const $input;
-
-  if(localities.length > 1) { //possibly create a dropdown if we have multiple cities in the result.
-    const $select = $(document.createElement('select'));
-    for(const i = 0; i < localities.length; i++){
-      const city = localities[i].city;
-      const $option = $(document.createElement('option'));
-      $option.html(city);
-      $option.attr('value', city);
-      if(i == 0) {
-        $option.attr('selected','selected');
-      }
-      $select.append($option);
-      $select.attr('id','city');
+//credit to gemini but i didnt get it to function sadly
+async function loadStateOptions() {
+  try {
+    // 1. Fetch the raw file content
+    const response = await fetch('states.html');
+    
+    // Check if the response is valid
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    $input = $select;
-  } else {
-    const city = localities[0].city;
-    const $text = $(document.createElement('input'));
-    $text.attr('value', city);
-    $text.attr('type','text');
-    $input = $text;
+    
+    const htmlData = await response.text();
+    
+    document.getElementById('state').innerHTML = htmlData;
+    
+  } catch (error) {
+    console.error("Fetch failed: ", error);
+    document.getElementById('StateStatus').textContent = "Failed to load options. Please refresh.";
+    document.getElementById('StateStatus').style.color = "red";
+  }
+}
+
+window.onload = function() {
+
+  loadStateOptions();
+
+  if (document.getElementById('FirstName')) {
+    document.getElementById('FirstName').value = 'John';
+  }
+};
+
+//credit to w3schools and gemini for assisting me
+window.onload = function() {
+  loadStateOptions(); 
+  Names();           
+};
+
+function Names() {
+  const savedName = localStorage.getItem("savedFirstName");
+  const savedEmail = localStorage.getItem("savedEmailAddress");
+  const savedPhone = localStorage.getItem("savedPhoneNumber");
+  const savedAddress = localStorage.getItem("savedAddress");
+  const savedZCode = localStorage.getItem("savedZCode");
+  const savedCity = localStorage.getItem("savedCity");
+
+  if (savedName || savedEmail || savedPhone || savedAddress || savedZCode || savedCity) {
+    document.getElementById('Remember').checked = true;
   }
 
-  $('#city-input-wrapper').html($input);
+  if (savedName) document.getElementById('FirstName').value = savedName;
+  if (savedEmail) document.getElementById('EmailAddress').value = savedEmail;
+  if (savedPhone) document.getElementById('PhoneNum').value = savedPhone;
+  if (savedAddress) document.getElementById('AddressLine').value = savedAddress;
+  if (savedZCode) document.getElementById('ZCode').value = savedZCode;
+  if (savedCity) document.getElementById('City').value = savedCity;
+}
+
+function handleRememberMe() {
+  const rememberCheckbox = document.getElementById("Remember");
+
+  if (rememberCheckbox.checked) {
+    const firstNameInput = document.getElementById("FirstName").value;
+    const emailInput = document.getElementById("EmailAddress").value;
+    const phoneInput = document.getElementById("PhoneNum").value;
+    const addressInput = document.getElementById("AddressLine").value;
+    const zCodeInput = document.getElementById("ZCode").value;
+    const cityInput = document.getElementById("City").value;
+
+    localStorage.setItem("savedFirstName", firstNameInput);
+    localStorage.setItem("savedEmailAddress", emailInput);
+    localStorage.setItem("savedPhoneNumber", phoneInput);
+    localStorage.setItem("savedAddress", addressInput);
+    localStorage.setItem("savedZCode", zCodeInput);
+    localStorage.setItem("savedCity", cityInput);
+  } else {
+    localStorage.removeItem("savedFirstName");
+    localStorage.removeItem("savedEmailAddress");
+    localStorage.removeItem("savedPhoneNumber");
+    localStorage.removeItem("savedAddress");
+    localStorage.removeItem("savedZCode");
+    localStorage.removeItem("savedCity");
+  }
 }
 //Credit to Professor Jake! (i made some tweaks dont worry! I must add that I used Google GEmini (You mentioned we can use it somewhat) to help me figure out why i coulnt get it to function)
 function returndata() {
